@@ -1,0 +1,18 @@
+void buildSS(T P)
+{
+  SS.assign(p);
+  SS[p-1]=p;
+  
+  for(int lo=p-1, hi=p-1, j=lo-1; j>=0; j--)
+    if(lo<j && SS[p-hi+j-1]<=j-lo)
+      SS[j]=SS[p-hi+j-1];
+    else
+    {
+      hi=j;
+      lo=__min(lo, hi);
+      while(0<=lo && P[lo]==P[p-hi+lo-1])
+        lo--;
+      SS[j]=hi-lo;
+    }
+}
+

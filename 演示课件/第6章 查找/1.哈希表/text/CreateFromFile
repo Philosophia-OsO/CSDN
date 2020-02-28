@@ -1,0 +1,14 @@
+void CreateHashFromFile(string FileName)
+{
+  D e;
+  bool j;
+  ifstream fin(FileName.c_str());
+  while(InputFromFile(fin, e))
+  {
+    j=InsertHash(e);
+    if(!j)
+      cout<<"哈希表中已有关键字为"<<e.key<<"的数据，无法再插入数据";
+  }
+  fin.close();
+}
+

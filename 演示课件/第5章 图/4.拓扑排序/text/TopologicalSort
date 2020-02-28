@@ -1,0 +1,27 @@
+bool TopologicalSort()
+{
+  int i, k, count=0;
+  stack<int> S;
+  list<ArcTNode<ArcT> >::const_iterator p;
+  FindInDegree();
+  for(i=0; i<vexs.size(); i++)
+    if(!indegree[i])
+      S.push(i);
+  while(!S.empty())
+  {
+    i=S.top();
+    S.pop();
+    count++;
+    for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+    {
+      k=p->adjvex;
+      if(!(--indegree[k]))
+        S.push(k);
+    }
+  }
+  if(count<vexs.size())
+    return false;
+  else
+    return true;
+}
+

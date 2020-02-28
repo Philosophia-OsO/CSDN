@@ -1,0 +1,19 @@
+void Merge(int low, int m, int high)
+{
+  int i=low, j=m+1, k=low, p;
+  
+  for(; i<=m && j<=high; k++)
+    if LE(elem[i].key, elem[j].key)
+      temp[k]=elem[i++];
+    else
+      temp[k]=elem[j++];
+  if(i<=m)
+    for(p=0; p<=m-i; p++)
+      temp[k+p]=elem[i+p];
+  if(j<=high)
+    for(p=0; p<=high-j; p++)
+      temp[k+p]=elem[j+p];
+  for(p=low; p<=high; p++)
+    elem[p]=temp[p];
+}
+

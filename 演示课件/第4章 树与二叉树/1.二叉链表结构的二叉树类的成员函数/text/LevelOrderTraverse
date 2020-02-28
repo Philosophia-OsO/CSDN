@@ -1,0 +1,20 @@
+void LevelOrderTraverse(void(*visit)(BiTNode<T>&))const
+{
+  queue<BiTNode<T>*> q;
+  BiTNode<T> *a, *t=root;
+  if(t!=NULL)
+  {
+    q.push(t);
+    while(!q.empty())
+    {
+      a=q.front();
+      q.pop();
+      visit(*a);
+      if(a->lchild!=NULL)
+        q.push(a->lchild);
+      if(a->rchild!=NULL)
+        q.push(a->rchild);
+    }
+  }
+}
+

@@ -1,0 +1,138 @@
+void AdjustDoubleBlack(RBTNode<T>* &pa, bool lr)
+{
+  RBTNode<T> *gp;
+  int flag;
+  if(pa==root)
+    flag=0;
+  else
+  {
+    gp=Parent(pa);
+    if(pa->data.key<gp->data.key)
+      flag=1;
+    else
+      flag=2;
+  }
+  if(lr)
+  {
+    if(pa->lchild!=NULL && pa->lchild->RB==Red)
+      pa->lchild->RB=Black;
+    else
+    {
+      if(pa->rchild!=NULL && pa->rchild->RB==Black)
+      {
+        if(pa->rchild->rchild!=NULL && pa->rchild->rchild->RB==Red)
+        {
+          pa->rchild->RB=pa->RB;
+          pa->RB=pa->rchild->rchild->RB=Black;
+          RR_Rotate(pa);
+          switch(flag)
+          {
+          case 0: root=pa; break;
+          case 1: gp->lchild=pa; break;
+          case 2: gp->rchild=pa;
+          }
+        }
+        else if(pa->rchild->lchild!=NULL && pa->rchild->lchild->RB==Red)
+        {
+          pa->rchild->lchild->RB=pa->RB;
+          pa->RB=pa->rchild->RB=Black;
+          RL_Rotate(pa);
+          switch(flag)
+          {
+          case 0: root=pa; break;
+          case 1: gp->lchild=pa; break;
+          case 2: gp->rchild=pa;
+          }
+        }
+        else
+        {
+          pa->rchild->RB=Red;
+          if(pa->RB==Red)
+            pa->RB=Black;
+          else
+          {
+            switch(flag)
+            {
+            case 1: AdjustDoubleBlack(gp, true); break;
+            case 2: AdjustDoubleBlack(gp, false);
+            }
+          }
+        }
+      }
+      else if(pa->rchild!=NULL && pa->rchild->RB==Red)
+      {
+        pa->RB=Red;
+        pa->rchild->RB=Black;
+        RR_Rotate(pa);
+        switch(flag)
+        {
+        case 0: root=pa; break;
+        case 1: gp->lchild=pa; break;
+        case 2: gp->rchild=pa;
+        }
+        AdjustDoubleBlack(pa->lchild, true);
+      }
+    }
+  }
+  else
+  {
+    if(pa->rchild!=NULL && pa->rchild->RB==Red)
+      pa->rchild->RB=Black;
+    else
+    {
+      if(pa->lchild!=NULL && pa->lchild->RB==Black)
+      {
+        if(pa->lchild->lchild!=NULL && pa->lchild->lchild->RB==Red)
+        {
+          pa->lchild->RB=pa->RB;
+          pa->RB=pa->lchild->lchild->RB=Black;
+          LL_Rotate(pa);
+          switch(flag)
+          {
+          case 0: root=pa; break;
+          case 1: gp->lchild=pa; break;
+          case 2: gp->rchild=pa;
+          }
+        }
+        else if(pa->lchild->rchild!=NULL && pa->lchild->rchild->RB==Red)
+        {
+          pa->lchild->rchild->RB=pa->RB;
+          pa->RB=pa->lchild->RB=Black;
+          LR_Rotate(pa);
+          switch(flag)
+          {
+          case 0: root=pa; break;
+          case 1: gp->lchild=pa; break;
+          case 2: gp->rchild=pa;
+          }
+        }
+        else
+        {
+          pa->lchild->RB=Red;
+          if(pa->RB==Red)
+            pa->RB=Black;
+          else
+            switch(flag)
+            {
+            case 1: AdjustDoubleBlack(gp, true); break;
+            case 2: AdjustDoubleBlack(gp, false);
+            }
+        }
+      }
+      else if(pa->lchild!=NULL && pa->lchild->RB==Red)
+      {
+        pa->RB=Red;
+        pa->lchild->RB=Black;
+        LL_Rotate(pa);
+        switch(flag)
+        {
+        case 0: root=pa; break;
+        case 1: gp->lchild=pa; break;
+        case 2: gp->rchild=pa;
+        }
+        AdjustDoubleBlack(pa->rchild, false);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,4 @@
+int StackLength()const
+{
+  return ListLength();
+}

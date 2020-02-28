@@ -1,0 +1,44 @@
+bool AddSMatrix(const RLSMatrix &M, const RLSMatrix &N)
+{
+  int p, q, up, uq;
+  if(M.rpos.size()!=N.rpos.size() || M.col!=N.col)
+    return false;
+  col=M.col;
+  rpos.resize(M.rpos.size());
+  for(int k=0; k<rpos.size(); k++)
+  {
+    rpos[k]=data.size();
+    p=M.rpos[k];
+    q=N.rpos[k];
+    if(k<rpos.size()-1)
+    {
+      up=M.rpos[k+1];
+      uq=N.rpos[k+1];
+    }
+    else
+    {
+      up=M.data.size();
+      uq=N.data.size();
+    }
+    while(p<up && q<uq)
+      if(M.data[p].j<N.data[q].j)
+        data.push_back(M.data[p++]);
+      else if(M.data[p].j>N.data[q].j)
+        data.push_back(N.data[q++]);
+      else
+      {
+        if(M.data[p].e+N.data[q].e!=0)
+        {
+          data.push_back(M.data[p]);
+          data[data.size()-1].e+=N.data[q].e;
+        }
+        p++, q++;
+      }
+    while(p<up)
+      data.push_back(M.data[p++]);
+    while(q<uq)
+      data.push_back(N.data[q++]);
+  }
+  return true;
+}
+

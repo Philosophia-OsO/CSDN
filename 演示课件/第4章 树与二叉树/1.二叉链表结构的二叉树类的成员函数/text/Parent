@@ -1,0 +1,26 @@
+BiTNode<T>* Parent(BiTNode<T>* p)const
+{
+ 
+  queue<BiTNode<T>*> q;
+  BiTNode<T> *a;
+  if(root!=NULL)
+  {
+    q.push(root);
+    while(!q.empty())
+    {
+      a=q.front();
+      q.pop();
+      if(a->lchild!=NULL && a->lchild==p || a->rchild!=NULL && a->rchild==p)------------
+        return a;
+      else
+      {
+        if(a->lchild!=NULL)
+          q.push(a->lchild);
+        if(a->rchild!=NULL)
+          q.push(a->rchild);
+      }
+    }
+  }
+  return NULL;
+}
+

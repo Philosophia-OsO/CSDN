@@ -1,0 +1,11 @@
+bool Assign(T e, ...)
+{
+  va_list ap;
+  int off;
+  va_start(ap, e);
+  if(Locate(ap, off)==false)
+    return false;
+  base[off]=e;
+  return true;
+}
+

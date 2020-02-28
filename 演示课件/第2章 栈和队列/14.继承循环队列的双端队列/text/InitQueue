@@ -1,0 +1,25 @@
+template<typename T>class DeQueueCy:public SqQueueCy<T>
+{
+public:
+  bool GetRear(T &e)const
+  {
+    бнбн
+  }
+  bool EnQueueAtFront(T e)
+  {
+    бнбн
+  }
+  bool DeQueueAtRear(T &e)
+  {
+    бнбн
+  }
+};
+
+SqQueueCy(int k=1)
+{
+  base=new T[k];
+  assert(base!=NULL);
+  front=rear=0;
+  queuesize=k;
+}
+

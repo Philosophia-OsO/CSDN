@@ -1,0 +1,10 @@
+void QueueTraverse(void(*visit)(T&))const
+{
+  int i=front;
+  while(i!=rear)
+  {
+    visit(base[i]);
+    i=++i%queuesize;
+  }
+}
+

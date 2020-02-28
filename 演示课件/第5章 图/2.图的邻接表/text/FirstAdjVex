@@ -1,0 +1,9 @@
+int FirstAdjVex(int i)const
+{
+  list<ArcTNode<ArcT> >::const_iterator p=vexs[i].arcs.begin();
+  if(p!=vexs[i].arcs.end())
+    return p->adjvex;
+  else
+    return -1;
+}
+

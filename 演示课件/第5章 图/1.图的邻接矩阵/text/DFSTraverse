@@ -1,0 +1,9 @@
+void DFSTraverse(void(*visit)(VerT))
+{
+  int i;
+  vector<bool> Visited(vexs.size(), false);
+  for(i=0; i<vexs.size(); i++)
+    if(!Visited[i])
+      DFS(i, visit, Visited);
+}
+

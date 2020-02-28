@@ -1,0 +1,15 @@
+int NextAdjVex(int i, int j)const
+{
+  list<ArcTNode<ArcT> >::const_iterator p;
+  for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+    if(p->adjvex==j)
+    {
+      p++;
+      break;
+    }
+  if(p==vexs[i].arcs.end())
+    return -1;
+  else
+    return p->adjvex;
+}
+

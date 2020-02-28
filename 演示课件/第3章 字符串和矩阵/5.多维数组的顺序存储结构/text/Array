@@ -1,0 +1,20 @@
+void Array(int Dim, ...)
+{
+  int elemtotal=1, i;
+  va_list ap;
+  assert(Dim>0);
+  dim=Dim;
+  va_start(ap, Dim);
+  for(i=0; i<dim; i++)
+  {
+    bounds.push_back(va_arg(ap, int));
+    assert(bounds[i]>0);
+    elemtotal*=bounds[i];
+  }
+  va_end(ap);
+  base.assign(elemtotal, 0);
+  constants.assign(dim, 1);
+  for(i=dim-2; i>=0; i--)
+    constants[i]=bounds[i+1]*constants[i+1];
+}
+

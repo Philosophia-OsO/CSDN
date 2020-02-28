@@ -1,0 +1,44 @@
+void MazePathByStack()
+{
+  SqStack<PosDirect> S(16);
+  PosDirect e;
+  PosType curpos=begin;
+  int curstep=1;
+  do
+  {
+    if(maze[curpos.row][curpos.col]==-1)
+    {
+      maze[curpos.row][curpos.col]=curstep;
+      e.row=curpos.row,e.col=curpos.col;
+      e.direct=0;
+      S.Push(e);
+      curstep++;
+      if(curpos==end)
+        return;
+      else
+        curpos=curpos+direc[e.direct];
+    }
+    else
+      if(!S.StackEmpty())
+      {
+        S.Pop(e);
+        curstep--;
+        while(e.direct==3 && !S.StackEmpty())
+        {
+          maze[e.row][e.col]=-2;
+          S.Pop(e);
+          curstep--;
+        }
+        if(e.direct<3)
+        {
+          e.direct++;
+          S.Push(e);
+          curstep++;
+          curpos.row=e.row+direc[e.direct].row;
+          curpos.col=e.col+direc[e.direct].col;
+          
+        }
+      }
+  }while(!S.StackEmpty());
+  cout<<"此迷宫没有从入口到出口的路径"<<endl;
+}

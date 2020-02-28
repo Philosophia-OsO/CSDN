@@ -1,0 +1,25 @@
+bool ListInsert(int i, T e)
+{
+  int m, k=0;
+  for(m=1; m<i; m++)
+  {
+    k=SL[k].link;
+    if(k==0)
+      break;
+  }
+  if(m<i)
+    return false;
+  else
+  {
+    m=NEW();
+    if(m)
+    {
+      SL[m].data=e;
+      SL[m].link=SL[k].link;
+      SL[k].link=m;
+      return true;
+    }
+    return false;
+  }
+}
+

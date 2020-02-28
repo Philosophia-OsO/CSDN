@@ -1,0 +1,11 @@
+int ListLength()const
+{
+  int j=0, i=SL[0].link;
+  while(i)
+  {
+    i=SL[i].link;
+    j++;
+  }
+  return j;
+}
+

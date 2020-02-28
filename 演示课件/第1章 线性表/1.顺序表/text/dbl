@@ -1,0 +1,5 @@
+inline void dbl(T& c)
+{
+  c*=2;
+}
+

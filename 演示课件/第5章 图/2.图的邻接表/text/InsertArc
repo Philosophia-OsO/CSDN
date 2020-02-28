@@ -1,0 +1,19 @@
+bool InsertArc(VerT v, VerT w)
+{
+  ArcTNode<ArcT> e;
+  int i, j;
+  i=LocateVex(v);
+  j=LocateVex(w);
+  if(i<0 || j<0)
+    return false;
+  ArcNum++;
+  e.adjvex=j;
+  InputArc(Directed, Weight, v, w, e.arc);
+  vexs[i].arcs.push_front(e);
+  if(!Directed)
+  {
+    e.adjvex=i;
+    vexs[j].arcs.push_front(e);
+  }
+  return true;
+}

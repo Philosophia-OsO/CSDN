@@ -1,0 +1,18 @@
+bool StrDelete(int pos, int len)
+{
+  int i;
+  char *p;
+  if(length<pos+len)
+    return false;
+  p=new char[length-len];
+  assert(p!=NULL);
+  for(i=0; i<pos; i++)
+    p[i]=ch[i];
+  for(i=pos; i<length-len; i++)
+    p[i]=ch[i+len];
+  length-=len;
+  delete[]ch;
+  ch=p;
+  return true;
+}
+

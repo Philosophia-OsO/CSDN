@@ -1,0 +1,16 @@
+bool ListInsert(int i, T e)
+{
+  DLNode<T> *s, *p=GetElemP(i-1);
+  if(p==NULL)
+    return false;
+  s=new DLNode<T>;
+  if(s==NULL)
+    return false;
+  s->data=e;
+  s->prior=p;
+  s->next=p->next;
+  p->next->prior=s;
+  p->next=s;
+  return true;
+}
+

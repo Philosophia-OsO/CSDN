@@ -1,0 +1,13 @@
+void StrAssign(const char* str)
+{
+  ClearString();
+  length=strlen(str);
+  if(length)
+  {
+    ch=new char[length];
+    assert(ch!=NULL);
+    for(int j=0; j<length; j++)
+      ch[j]=str[j];
+  }
+}
+

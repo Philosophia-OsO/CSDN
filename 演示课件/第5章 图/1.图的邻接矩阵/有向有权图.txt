@@ -1,0 +1,11 @@
+true
+true
+3
+d1 d2 d3
+4
+d1 d2 5
+d1 d3 6
+d2 d3 4
+d2 d1 3
+
+

@@ -1,0 +1,17 @@
+bool PriorElem(T e, bool(*eq)(T, T), T &pre_e)const
+{
+ 
+  int j, i=SL[0].link;
+  do
+  {
+    j=i;
+    i=SL[i].link;
+  }while(i && !eq(SL[i].data, e));
+  if(i)
+  {
+    pre_e=SL[j].data;
+    return true;
+  }
+  return false;
+}
+

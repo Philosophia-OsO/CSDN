@@ -1,0 +1,14 @@
+void InsertSort()
+{
+  D temp;
+  for(int i=1; i<elem.size(); i++)
+    if LT(elem[i].key, elem[i-1].key)
+    {
+      temp=elem[i];
+      for(int j=i-1; LT(temp.key, elem[j].key) && j>=0; j--)
+      
+        elem[j+1]=elem[j];
+      elem[j+1]=temp;
+    }
+}
+

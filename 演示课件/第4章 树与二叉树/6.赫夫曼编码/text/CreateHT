@@ -1,0 +1,29 @@
+void CreateHT(string FileName)
+{
+  int i, s1, s2;
+  ifstream fin(FileName.c_str());
+  fin>>N;
+  if(N<=1)
+    return;
+  HT.assign(2*N-1);
+  for(i=0; i<N; i++)
+  {
+    fin>>HT[i].weight;
+    HT[i].parent=-1;
+    HT[i].lchild=-1;
+    HT[i].rchild=-1;
+  }
+  fin.close();
+  for(i=N; i<HT.size(); i++)
+    HT[i].parent=-1;
+  for(i=N; i<HT.size(); i++)
+  {
+    Select(i, s1, s2);
+    HT[s1].parent=HT[s2].parent=i;
+    HT[i].lchild=s1;
+    HT[i].rchild=s2;
+    HT[i].weight=HT[s1].weight+HT[s2].weight;
+  }
+  Make=true;
+}
+

@@ -1,0 +1,13 @@
+void Bank(int n=2, int k=480, int i=8, int j=20)
+{
+ 
+  Qn=n;
+  CloseTime=k;
+  Khjg=i;
+  Blsj=j;
+  Initialize();
+  chk.assign(Qn, true);
+  customer.assign(Qn);
+  Bank_Simulation();
+}
+

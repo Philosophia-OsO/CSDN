@@ -1,0 +1,31 @@
+typedef int VRType;
+const int INFINITY=INT_MAX
+
+template<typename VerT, typename ArcT>struct VerTNode
+{
+	VerT vex;
+	vector<ArcT> arcs;
+};
+template<typename VerT, typename ArcT>class Graph
+{
+protected:
+	vector<VerTNode<VerT, ArcT> > vexs;
+	
+	int ArcNum;
+	bool Weight;
+	bool Directed;
+};
+
+模板VerT的实参V：
+struct V
+{
+  string name;
+};
+
+模板ArcT的实参A：
+struct A
+{
+  VRType adj;
+  
+};
+

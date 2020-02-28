@@ -1,0 +1,15 @@
+void Zig(BiTNode<T>* p)
+{
+  if(p->data.key<root->data.key)
+  {
+    root->lchild=p->rchild;
+    p->rchild=root;
+  }
+  else
+  {
+    root->rchild=p->lchild;
+    p->lchild=root;
+  }
+  root=p;
+}
+

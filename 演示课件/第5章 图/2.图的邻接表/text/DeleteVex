@@ -1,0 +1,29 @@
+bool DeleteVex(VerT v)
+{
+  int i, k;
+  list<ArcTNode<ArcT> >::iterator p;
+  k=LocateVex(v);
+  if(k<0)
+    return false;
+  for(i=0; i<vexs.size(); i++)
+  {
+    for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+      if(p->adjvex==k)
+      {
+        vexs[i].arcs.erase(p);
+        ArcNum--;
+        break;
+      }
+  }
+  if(Directed)
+    ArcNum-=vexs[k].arcs.size();
+  vexs.erase(vexs.begin()+k);
+  for(i=0; i<vexs.size(); i++)
+  {
+    for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+      if(p->adjvex>k)
+        p->adjvex--;
+  }
+  return true;
+}
+

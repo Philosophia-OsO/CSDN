@@ -1,0 +1,6 @@
+MuArray类的4个私有数据成员
+  vector<T> base;
+  int dim;
+  vector<int> bounds;
+  vector<int>constants;
+

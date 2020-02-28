@@ -1,0 +1,19 @@
+bool Push(T e)
+{
+  T *newbase;
+  if(top-base==stacksize)
+  {
+    newbase=new T[stacksize*2];
+    if(newbase==NULL)
+      return false;
+    for(int j=0; j<top-base; j++)
+      *(newbase+j)=*(base+j);
+    delete[]base;
+    base=newbase;
+    top=base+stacksize;
+    stacksize*=2;
+  }
+  *top++=e;
+  return true;
+}
+

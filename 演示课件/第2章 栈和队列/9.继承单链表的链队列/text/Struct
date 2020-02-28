@@ -1,0 +1,15 @@
+template<typename T>struct LNode
+{
+  T data;
+  LNode<T> *next;
+};
+
+LinkList单链表类的数据成员
+protected:
+  LNode<T> *Head;
+
+template<typename T>class LinkQueue:public LinkList<T>
+{
+protected:
+  LNode<T> *rear;
+

@@ -1,0 +1,50 @@
+void AdjustDoubleRed(RBTNode<T>* &s, RBTNode<T>* &p)
+{
+  RBTNode<T> *u, *g, *gp;
+  int flag;
+  u=Uncle(s);
+  g=Grandfather(s);
+  if(g==root)
+    flag=0;
+  else
+  {
+    gp=Parent(g);
+    if(g->data.key<gp->data.key)
+      flag=1;
+    else
+      flag=2;
+  }
+  if(u==NULL || u->RB==Black)
+  {
+    if(g->data.key>p->data.key)
+      if(p->data.key>s->data.key)
+        LL_Rotate(g);
+      else
+        LR_Rotate(g);
+    else
+      if(p->data.key<s->data.key)
+        RR_Rotate(g);
+      else
+        RL_Rotate(g);
+    g->RB=Black;
+    g->lchild->RB=g->rchild->RB=Red;
+    switch(flag)
+    {
+    case 0: root=g; break;
+    case 1: gp->lchild=g; break;
+    case 2: gp->rchild=g;
+    }
+  }
+  else
+  {
+    p->RB=u->RB=Black;
+    if(flag>0)
+    {
+      g->RB=Red;
+      u=Parent(g);
+      if(u->RB==Red)
+        AdjustDoubleRed(g, u);
+    }
+  }
+}
+

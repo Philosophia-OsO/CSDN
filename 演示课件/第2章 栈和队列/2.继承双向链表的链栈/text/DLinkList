@@ -1,0 +1,7 @@
+DLinkList()
+{
+  Head=new DLNode<T>;
+  assert(Head!=NULL);
+  Head->next=Head->prior=Head;
+}
+

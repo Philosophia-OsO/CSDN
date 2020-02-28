@@ -1,0 +1,16 @@
+bool PriorElem(T e, bool(*eq)(T, T), T &pre_e)const
+{
+ 
+  LNode<T> *q, *p=Head->next;
+  while(p!=NULL && p->next!=NULL)
+  {
+    q=p->next;
+    if(eq(q->data, e))
+    {
+      pre_e=p->data;
+      return true;
+    }
+    p=q;
+  }
+  return false;
+}

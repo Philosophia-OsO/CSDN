@@ -1,0 +1,7 @@
+int Keylength()
+{
+  vector<D>::const_iterator it;
+  it=max_element(v.begin(),v.end(), com);
+  return it->key.size();
+}
+

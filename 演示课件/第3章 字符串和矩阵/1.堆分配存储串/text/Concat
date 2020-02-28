@@ -1,0 +1,13 @@
+void Concat(const HString &S1, const HString &S2)
+{
+  int i;
+  ClearString();
+  length=S1.length+S2.length;
+  ch=new char[length];
+  assert(ch!=NULL);
+  for(i=0; i<S1.length; i++)
+    ch[i]=S1[i];
+  for(i=0; i<S2.length; i++)
+    ch[S1.length+i]=S2[i];
+}
+

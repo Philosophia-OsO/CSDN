@@ -1,0 +1,11 @@
+int ListLength()const
+{
+  int i=0;
+  LNode<T> *p=Head->next;
+  while(p!=NULL)
+  {
+    i++;
+    p=p->next;
+  }
+  return i;
+}

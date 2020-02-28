@@ -1,0 +1,10 @@
+void ListTraverse(void(*visit)(T&))const
+{
+  DLNode<T> *p=Head->next;
+  while(p!=Head)
+  {
+    visit(p->data);
+    p=p->next;
+  }
+}
+

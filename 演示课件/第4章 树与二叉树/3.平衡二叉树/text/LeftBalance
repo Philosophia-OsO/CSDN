@@ -1,0 +1,32 @@
+void LeftBalance(AVLTNode<T>* &p)
+{
+ 
+ 
+  AVLTNode<T> *lc, *rd;
+  lc=p->lchild;
+  switch(lc->bf)
+  {
+  case LH:
+    p->bf=lc->bf=EH;
+    LL_Rotate(p);
+    break;
+  case RH:
+    rd=lc->rchild;
+    switch(rd->bf)
+    {
+    case LH:
+      p->bf=RH;
+      lc->bf=EH;
+      break;
+    case EH:
+      p->bf=lc->bf=EH;
+      break;
+    case RH:
+      p->bf=EH;
+      lc->bf=LH;
+    }
+    rd->bf=EH;
+    LR_Rotate(p);
+  }
+}
+

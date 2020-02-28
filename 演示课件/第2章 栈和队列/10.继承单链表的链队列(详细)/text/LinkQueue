@@ -1,0 +1,12 @@
+LinkList()
+{
+  Head=new LNode<T>; 
+  assert(Head!=NULL);
+  Head->next=NULL;   
+}
+LinkQueue()
+{
+  rear=Head;
+            
+}
+

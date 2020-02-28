@@ -1,0 +1,11 @@
+int FirstAdjVex(int i)const
+{
+  VRType j=0;
+  if(Weight)
+    j=INFINITY;
+  for(int k=0; k<vexs.size(); k++)
+    if(k!=i && vexs[i].arcs[k].adj!=j)
+      return k;
+  return -1;
+}
+

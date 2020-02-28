@@ -1,0 +1,4 @@
+bool GetTop(T &e)const
+{
+  return GetElem(1, e);
+}

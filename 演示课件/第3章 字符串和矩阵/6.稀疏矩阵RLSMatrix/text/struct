@@ -1,0 +1,15 @@
+template<typename T>struct Triple
+{
+  int i, j;
+  T e;
+};
+
+template<typename T>class RLSMatrix
+{
+private:
+  vector<Triple<T> >data;
+  vector<int> rpos;
+  int col;
+  бнбн
+};
+

@@ -1,0 +1,29 @@
+void CustomerArrived()
+{
+  Event e;
+  QElemType f;
+  int DurationTime, IntervalTime, i;
+  
+  CustomerNum++;
+  Random(DurationTime, IntervalTime);
+  
+  e.OccurTime=en.OccurTime+IntervalTime;
+  
+  e.NType=Qn;
+  if(e.OccurTime<CloseTime)
+    ev.push(e);
+  f.ArrivalTime=en.OccurTime;
+  f.Duration=DurationTime;
+  q.EnQueue(f);
+  i=ChuangKou();
+  if(i<Qn)
+  {
+    q.DeQueue(customer[i]);
+    
+    e.OccurTime=en.OccurTime+customer[i].Duration;
+    e.NType=i;
+    ev.push(e);
+    chk[i]=false;
+  }
+}
+

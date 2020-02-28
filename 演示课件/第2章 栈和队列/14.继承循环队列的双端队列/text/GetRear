@@ -1,0 +1,8 @@
+bool GetRear(T &e)const
+{
+  if(front==rear)
+    return false;
+  e=*(base+(rear-1+queuesize)%queuesize);
+  return true;
+}
+

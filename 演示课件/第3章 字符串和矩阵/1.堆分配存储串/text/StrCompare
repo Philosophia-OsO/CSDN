@@ -1,0 +1,8 @@
+int StrCompare(const HString &S)const
+{
+  for(int i=0; i<length && i<S.length; i++)
+    if(ch[i]!=S[i])
+      return ch[i]-S[i];
+  return length-S.length;
+}
+

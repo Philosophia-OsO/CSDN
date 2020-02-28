@@ -1,0 +1,6 @@
+int QueueLength()const
+{ 
+  return (rear-front+queuesize)%queuesize;
+  
+}
+

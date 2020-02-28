@@ -1,0 +1,9 @@
+const int MAX_SIZE=10;
+struct component
+{
+  T data;
+  int link;
+};
+private:
+  component SL[MAX_SIZE];
+

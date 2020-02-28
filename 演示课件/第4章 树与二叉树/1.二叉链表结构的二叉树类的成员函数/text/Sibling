@@ -1,0 +1,19 @@
+bool Sibling(BiTNode<T>* p, BiTNode<T>* &sib, bool &LR)const
+{
+ 
+  BiTNode<T> *q=Parent(p);
+  if(q==NULL)
+    return false;
+  if(q->lchild==p)
+  {
+    sib=q->rchild;
+    LR=true;
+  }
+  else
+  {
+    sib=q->lchild;
+    LR=false;
+  }
+  return sib!=NULL;
+}
+

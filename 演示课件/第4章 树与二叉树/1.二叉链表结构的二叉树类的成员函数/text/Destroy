@@ -1,0 +1,10 @@
+void DestroyBiTree(BiTNode<T>* &t)
+{
+  if(t!=NULL)
+  {
+    DestroyBiTree(t->lchild);
+    DestroyBiTree(t->rchild);
+    delete t;t=NULL;
+  }
+}
+

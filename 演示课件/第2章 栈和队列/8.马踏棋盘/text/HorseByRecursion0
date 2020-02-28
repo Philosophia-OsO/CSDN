@@ -1,0 +1,13 @@
+void HorseByRecursion(int n, PosType star, string FileName)
+{
+  Init(n);
+  int count=0, number=0;
+  PosType p={1, 1};
+  star=star+p;
+  fout.open(FileName.c_str(), ios::out);
+  Chessboard[star.row][star.col]=1;
+  fout<<"用递归方法求马踏棋盘的所有解："<<endl;
+  HorseByRecursion(star, 1, number);
+  fout.close();
+}
+

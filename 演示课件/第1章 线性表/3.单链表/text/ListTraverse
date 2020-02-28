@@ -1,0 +1,9 @@
+void ListTraverse(void(*visit)(T&))const
+{
+  LNode<T> *p=Head->next;
+  while(p!=NULL)
+  {
+    visit(p->data);
+    p=p->next;
+  }
+}

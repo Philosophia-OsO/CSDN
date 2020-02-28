@@ -1,0 +1,7 @@
+void StackTraverse(void(*visit)(T&))const
+{
+  T *p=base;
+  while(p<top)
+    visit(*(p++));
+}
+

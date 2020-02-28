@@ -1,0 +1,10 @@
+bool SubtSMatrix(const RLSMatrix &M, const RLSMatrix &N)
+{
+  int i;
+  RLSMatrix N1;
+  N1.CopySMatrix(N);
+  for(i=0; i<N1.data.size(); i++)
+    N1.data[i].e*=-1;
+  return AddSMatrix(M, N1);
+}
+

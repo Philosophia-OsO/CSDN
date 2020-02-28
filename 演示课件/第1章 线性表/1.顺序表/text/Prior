@@ -1,0 +1,13 @@
+bool PriorElem(T e, bool(*eq)(T, T), T &pre_e)const
+{
+ 
+  int i=LocateElem(e, eq);
+  if(i<=0)
+    return false;
+  else
+  {
+    pre_e=*(elem+i-1);
+    return true;
+  }
+}
+

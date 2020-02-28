@@ -1,0 +1,19 @@
+bool Replace(const HString &T, const HString &V)
+{
+ 
+  if(T.length==0)
+    return false;
+  int i=0;
+  while(i>-1)
+  {
+    i=Index(T, i);
+    if(i>-1)
+    {
+      StrDelete(i, T.length);
+      StrInsert(i, V);
+      i+=V.length;
+    }
+  }
+  return true;
+}
+

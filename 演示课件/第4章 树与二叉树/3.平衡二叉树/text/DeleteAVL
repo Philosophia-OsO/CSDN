@@ -1,0 +1,88 @@
+bool DeleteAVL(AVLTNode<T>* &p, T &e, bool &lower)
+{
+ 
+ 
+  AVLTNode<T> *rc, *lc;
+  T e1;
+  if(p==NULL)
+    return false;
+  else
+  {
+    if(EQ(e.key, p->data.key))
+    {
+      e=p->data;
+      rc=p;
+      if(p->lchild!=NULL && p->rchild!=NULL)
+      {
+        if(p->bf==RH)
+        {
+          lc=p->rchild;
+          while(lc->lchild!=NULL)
+            lc=lc->lchild;
+        } 
+        else
+        {
+          lc=p->lchild;
+          while(lc->rchild!=NULL)
+            lc=lc->rchild;
+        }
+        e1=lc->data;
+        DeleteAVL(p, e1, lower);
+        rc->data=e1;
+      } 
+      else
+      {
+        if(p->rchild==NULL)
+          p=p->lchild;
+        else
+          p=p->rchild;
+        delete rc;
+        lower=true;
+      }
+    }
+    else if(LT(e.key, p->data.key))
+    {
+      if(!DeleteAVL(p->lchild, e, lower))
+        return false;
+      if(lower)
+      {
+        switch(p->bf)
+        {
+        case EH:
+          p->bf=RH;
+          lower=false;
+          break;
+        case LH:
+          p->bf=EH;
+          lower=true;
+          break;
+        case RH:
+          D_LeftBalance(p, lower);
+        }
+      }
+    }
+    else
+    {
+      if(!DeleteAVL(p->rchild, e, lower))
+        return false;
+      if(lower)
+      {
+        switch(p->bf)
+        {
+        case EH: 
+          p->bf=LH;
+          lower=false;
+          break;
+        case RH:
+          p->bf=EH;
+          lower=true;
+          break;
+        case LH:
+          D_RightBalance(p, lower);
+        }
+      }
+    }
+    return true;
+  }
+}
+

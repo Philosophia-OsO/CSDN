@@ -1,0 +1,26 @@
+void MakeSmallFile(const string FileName, int N)
+{
+  append(FileName);
+  ifstream fin_big(FileName.c_str());
+  string s="F00.txt";
+  int j;
+  k=0;
+  while(!fin_big.eof())
+  {
+    InsSort<D> is;
+    for(j=0; j<N; j++)
+      if(!is.Input(fin_big))
+        break;
+    if(j>0)
+    {
+      is.InsertSort();
+      s[2]=k%10+'0';
+      s[1]=k/10%10+'0';
+      is.OutputAllToFile(s);
+      k++;
+    }
+  }
+  fin_big.close();
+  Make=true;
+}
+

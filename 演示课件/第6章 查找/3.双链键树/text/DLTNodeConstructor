@@ -1,0 +1,6 @@
+DLTNode()
+{
+  kind=BRANCH;
+  first=next=NULL;
+}
+

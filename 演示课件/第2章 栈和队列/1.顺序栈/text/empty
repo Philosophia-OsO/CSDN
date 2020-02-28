@@ -1,0 +1,4 @@
+bool StackEmpty()const
+{
+  return top==base;
+}

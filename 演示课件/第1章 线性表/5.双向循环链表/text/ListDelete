@@ -1,0 +1,12 @@
+bool ListDelete(int i, T &e)const
+{
+  DLNode<T> *p=GetElemP(i);
+  if(i<=0 || p==NULL)
+    return false;
+  e=p->data;
+  p->prior->next=p->next;
+  p->next->prior=p->prior;
+  delete p;
+  return true;
+}
+

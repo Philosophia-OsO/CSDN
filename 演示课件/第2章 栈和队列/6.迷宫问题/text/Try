@@ -1,0 +1,18 @@
+void Try(PosType curpos, int curstep)
+{
+  PosType nextpos;
+  for(int i=0; i<=3; i++)
+  {
+    nextpos=curpos+direc[i];
+    if(maze[nextpos.row][nextpos.col]==-1)
+    {
+      maze[nextpos.row][nextpos.col]=++curstep;
+      if(nextpos==end)
+        cout<<"½â"<<++count<<endl;
+      else
+      	Try(nextpos, curstep);
+      maze[nextpos.row][nextpos.col]=-1;
+      curstep--;
+    }
+  }
+}

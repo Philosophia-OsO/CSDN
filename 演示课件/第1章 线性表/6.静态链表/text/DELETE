@@ -1,0 +1,6 @@
+void DELETE(int k)
+{
+  SL[k].link=SL[MAX_SIZE-1].link;
+  SL[MAX_SIZE-1].link=k;
+}
+

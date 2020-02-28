@@ -1,0 +1,21 @@
+bool InsertArc(VerT v, VerT w)
+{
+  int i, j;
+  i=LocateVex(v);
+  j=LocateVex(w);
+  if(i<0 || j<0)
+    return false;
+  ArcNum++;
+  if(Weight)
+  {
+    cout<<"请输入此弧的权值：";
+    cin>>vexs[i].arcs[j].adj;
+  }
+  else
+    vexs[i].arcs[j].adj=1;
+  InputArc(vexs[i].arcs[j]);
+  if(!Directed)
+    vexs[j].arcs[i]=vexs[i].arcs[j];
+  return true;
+}
+

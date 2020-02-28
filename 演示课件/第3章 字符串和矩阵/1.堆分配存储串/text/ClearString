@@ -1,0 +1,10 @@
+void ClearString()
+{
+  if(ch!=NULL)
+  {
+    delete[]ch;
+    ch=NULL;
+  }
+  length=0;
+}
+

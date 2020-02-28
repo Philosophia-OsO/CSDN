@@ -1,0 +1,22 @@
+int match(T P, T Q, int pos)
+{
+  p=P.size();
+  buildBC(P);
+  int i=pos;
+  while(Q.size()>=i+p)
+  {
+    int j=p-1;
+    while(P[j]==Q[i+j])
+      if(--j<0)
+        break;
+    if(j<0)
+      break;
+    else
+    {
+      int B=__max(1, j-BC[(unsigned char)Q[i+j]]);
+      i+=B;
+    }
+  }
+  return i;
+}
+

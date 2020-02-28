@@ -1,0 +1,15 @@
+void OrderTraverse(BiTNode<T>* t,style mode,void(*visit)(BiTNode<T>&))const
+{
+  if(t!=NULL)
+  {
+    if(mode==Pre)
+      visit(*t);
+    OrderTraverse(t->lchild, mode, visit);
+    if(mode==In)
+      visit(*t);
+    OrderTraverse(t->rchild, mode, visit);
+    if(mode==Post)
+      visit(*t);
+  }
+}
+

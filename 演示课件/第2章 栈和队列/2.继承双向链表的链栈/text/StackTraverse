@@ -1,0 +1,5 @@
+void StackTraverse(void(*visit)(T&))const
+{
+  ListBackTraverse(visit);
+  
+}

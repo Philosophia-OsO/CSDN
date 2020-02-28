@@ -1,0 +1,9 @@
+void DFS(int i, void(*visit)(VerT), vector<bool> &Visited)
+{
+  Visited[i]=true;
+  visit(GetVex(i));
+  for(int j=FirstAdjVex(i); j>=0; j=NextAdjVex(i, j))
+    if(!Visited[j])
+      DFS(j, visit, Visited);
+}
+

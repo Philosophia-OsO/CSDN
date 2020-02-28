@@ -1,0 +1,9 @@
+bool Search(KeyType key)
+{
+ 
+  BiTNode<T> *p;
+  bool f=BSTree<T>::SearchBST(root, key, NULL, p);
+  Splay(p);
+  return f;
+}
+

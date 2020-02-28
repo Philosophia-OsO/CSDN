@@ -1,0 +1,17 @@
+void Splay(BiTNode<T>* p)
+{
+  BiTNode<T> *pg, *pp;
+  if(p!=root && p!=NULL)
+  {
+    pp=Parent(p);
+    pg=Parent(pp);
+    if(pg==NULL)
+      Zig(p);
+    else
+    {
+      ZigZig(p, pp, pg);
+      Splay(p);
+    }
+  }
+}
+

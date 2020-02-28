@@ -1,0 +1,40 @@
+bool MultSMatrix(const RLSMatrix &M, const RLSMatrix &N)
+{
+  int i, j, q, p, up, uq;
+  Triple<T> t;
+  RLSMatrix S;
+  if(M.col!=N.rpos.size())
+    return false;
+  rpos.resize(M.rpos.size());
+  col=N.col;
+  S.TransposeSMatrix(N);
+  for(i=0; i<rpos.size(); i++)
+    for(j=0; j<col; j++)
+    {
+      t.e=0;
+      p=M.rpos[i];
+      q=S.rpos[j];
+      if(i<M.rpos.size()-1)
+        up=M.rpos[i+1];
+      else
+        up=M.data.size();
+      if(j<S.rpos.size()-1)
+        uq=S.rpos[j+1];
+      else
+        uq=S.data.size();
+      while(p<up && q<uq)
+        if(M.data[p].j<S.data[q].j)
+          p++;
+        else if(M.data[p].j>S.data[q].j)
+          q++;
+        else
+          t.e+=M.data[p++].e*S.data[q++].e;
+      if(t.e!=0)
+      {
+        t.i=i, t.j=j;
+        data.push_back(t);
+      }
+    }
+  return true;
+}
+

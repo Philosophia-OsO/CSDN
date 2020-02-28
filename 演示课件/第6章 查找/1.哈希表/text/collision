@@ -1,0 +1,5 @@
+void collision(KeyType Key, int &p, int i)
+{
+  p=((Hash(Key)+d(i, Key))%capacity+capacity)%capacity;
+}
+

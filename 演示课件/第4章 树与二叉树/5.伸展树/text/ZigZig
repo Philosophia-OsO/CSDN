@@ -1,0 +1,45 @@
+void ZigZig(BiTNode<T>* p, BiTNode<T>* pp, BiTNode<T>* pg)
+{
+  BiTNode<T> *r=Parent(pg);
+  if(pp->data.key<pg->data.key)
+  {
+    if(p->data.key<pp->data.key)
+    {
+      pp->lchild=p->rchild;
+      pg->lchild=pp->rchild;
+      pp->rchild=pg;
+      p->rchild=pp;
+    }
+    else
+    {
+      pp->rchild=p->lchild;
+      pg->lchild=p->rchild;
+      p->lchild=pp;
+      p->rchild=pg;
+    }
+  }
+  else
+  {
+    if(p->data.key>pp->data.key)
+    {
+      pp->rchild=p->lchild;
+      pg->rchild=pp->lchild;
+      pp->lchild=pg;
+      p->lchild=pp;
+    }
+    else
+    {
+      pp->lchild=p->rchild;
+      pg->rchild=p->lchild;
+      p->rchild=pp;
+      p->lchild=pg;
+    }
+  }
+  if(r==NULL)
+    root=p;
+  else if(r->data.key>p->data.key)
+    r->lchild=p;
+  else
+    r->rchild=p;
+}
+

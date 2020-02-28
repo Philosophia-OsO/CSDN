@@ -1,0 +1,20 @@
+void CustomerDeparture()
+{
+  Event e;
+  int i;
+  i=en.NType;
+  chk[i]=true;
+  TotalTime+=en.OccurTime-customer[i].ArrivalTime;
+  
+  if(!q.QueueEmpty())
+  {
+    q.DeQueue(customer[i]);
+    
+    chk[i]=false;
+    e.OccurTime=en.OccurTime+customer[i].Duration;
+    
+    e.NType=i;
+    ev.push(e);
+  }
+}
+

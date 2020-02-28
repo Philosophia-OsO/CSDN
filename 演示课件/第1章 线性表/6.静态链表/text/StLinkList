@@ -1,0 +1,11 @@
+StLinkList()
+{
+ 
+  int i;
+  SL[0].link=0;
+  SL[MAX_SIZE-1].link=1;
+  for(i=1; i<MAX_SIZE-2; i++)
+    SL[i].link=i+1;
+  SL[MAX_SIZE-2].link=0;
+}
+

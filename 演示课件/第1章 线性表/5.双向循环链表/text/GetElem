@@ -1,0 +1,12 @@
+bool GetElem(int i, T &e)const
+{
+  DLNode<T> *p=GetElemP(i);
+  if(p!=NULL && i>0)
+  {
+    e=p->data;
+    return true;
+  }
+  else
+    return false;
+}
+

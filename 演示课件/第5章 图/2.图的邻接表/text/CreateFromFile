@@ -1,0 +1,34 @@
+void CreateFromFile(string FileName)
+{
+  int i, j, k;
+  VerT v1, v2;
+  ArcTNode<ArcT> e;
+  VerTNode<VerT, ArcT> v;
+  ifstream fin(FileName.c_str());
+  fin>>boolalpha>>Directed;
+  fin>>boolalpha>>Weight;
+  fin>>j;
+  vexs.assign(j);
+  for(i=0; i<j; i++)
+    InputVertexFromFile(fin,vexs[i].vex);
+  fin>>ArcNum;
+  for(k=0; k<ArcNum; k++)
+  {
+    InputVertexNameFromFile(fin, v1);
+    InputVertexNameFromFile(fin, v2);
+    i=LocateVex(v1);
+    j=LocateVex(v2);
+    e.adjvex=j;
+    if(Weight)
+      fin>>e.arc.weight;
+//    InputArcFromFile(fin, e.arc);//由数据文件输入弧除权值外的信息（如果有）并赋给e
+    vexs[i].arcs.push_front(e);
+    if(!Directed)
+    {
+      e.adjvex=i;
+      vexs[j].arcs.push_front(e);
+    }
+  }
+  fin.close();
+}
+

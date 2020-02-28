@@ -1,0 +1,4 @@
+bool GetHead(T &e)const
+{
+  return GetElem(1, e);
+}

@@ -1,0 +1,11 @@
+void QSort(int low, int high)
+{
+  if(low<high)
+  {
+    int pivotloc=Partition(low, high);
+    
+    QSort(low, pivotloc-1);
+    QSort(pivotloc+1, high);
+  }
+}
+

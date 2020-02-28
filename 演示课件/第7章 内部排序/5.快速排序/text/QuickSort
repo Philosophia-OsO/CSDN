@@ -1,0 +1,6 @@
+void QuickSort(bool bFlag=true)
+{
+  flag=bFlag;
+  QSort(0, elem.size()-1);
+}
+

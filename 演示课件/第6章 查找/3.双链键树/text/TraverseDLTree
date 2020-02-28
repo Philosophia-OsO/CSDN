@@ -1,0 +1,12 @@
+void TraverseDLTree(DLTNode* p, void(*visit)(D))const
+{
+  if(p!=NULL)
+  {
+    if(p->kind==BRANCH)
+      TraverseDLTree(p->first, visit);
+    else
+      visit(record[p->index]);
+    TraverseDLTree(p->next, visit);
+  }
+}
+

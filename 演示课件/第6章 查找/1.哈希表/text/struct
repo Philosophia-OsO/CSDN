@@ -1,0 +1,21 @@
+#define EQ(a, b) ((a)==(b))
+const int EMPTY=0;
+const int TOMB=-1;
+typedef int KeyType;
+const int N=4;
+int hashsize[N]={11, 19, 37, 73};
+//哈希表容量递增表，一个合适的素数序列，（重）建哈希表用到
+
+template<typename D>class HashTable
+{
+private:
+  D *elem;
+  int count, capacity;
+  int sizeindex;
+  vector<int> rando;
+  ……
+public:
+  int type;
+  ……
+};
+

@@ -1,0 +1,31 @@
+void Delete(BiTNode<T>* &p)
+{
+  BiTNode<T> *s=Parent(p), *q=p;
+  if(p->rchild==NULL)
+  {
+    p=p->lchild;
+    delete q;
+  }
+  else if(p->lchild==NULL)
+  {
+    p=p->rchild;
+    delete q;
+  }
+  else
+  {
+    s=p->lchild;
+    while(s->rchild!=NULL)
+    {
+      q=s;
+      s=s->rchild;
+    }
+    p->data=s->data;
+    if(q!=p)
+      q->rchild=s->lchild;
+    else
+      q->lchild=s->lchild;
+    delete s;
+    s=q;
+  }
+  Splay(s);
+}

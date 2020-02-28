@@ -1,0 +1,19 @@
+template<typename T>struct HTNode
+{
+  T weight;
+  int parent, lchild, rchild;
+};
+template<typename T>class HuffmanTree
+{
+private:
+  vector<HTNode<T> >HT;
+  int N;
+  bool Make;
+public:
+  HuffmanTree()
+  {
+    Make=false;
+  }
+  бнбн
+};
+

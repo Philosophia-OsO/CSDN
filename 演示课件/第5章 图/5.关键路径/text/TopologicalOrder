@@ -1,0 +1,35 @@
+bool TopologicalOrder(stack<int> &T)
+{
+ 
+ 
+  int i, k, count=0;
+  stack<int> S;
+  list<ArcTNode<ArcT> >::const_iterator p;
+  FindInDegree();
+  for(i=0; i<vexs.size(); i++)
+    if(indegree[i]==0)
+      S.push(i);
+  ve.assign(vexs.size(), 0);
+  while(!S.empty())
+  {
+    i=S.top();
+    S.pop();
+    T.push(i);
+    count++;
+    for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+    {
+      k=p->adjvex;
+      if(--indegree[k]==0)
+        S.push(k);
+      if(ve[i]+p->arc.weight>ve[k])
+        
+        ve[k]=ve[i]+p->arc.weight;
+        
+    }    
+  }
+  if(count<vexs.size())
+    return false;
+  else
+    return true;
+}
+

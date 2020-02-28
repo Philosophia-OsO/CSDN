@@ -1,0 +1,11 @@
+T Operate(T a, char theta, T b)
+{
+  switch(theta)
+  {
+  case'+':return a+b;
+  case'-':return a-b;
+  case'*':return a*b;
+  default:return a/b;
+  }
+}
+

@@ -1,0 +1,5 @@
+int StackLength()const
+{
+  return top-base;
+}
+

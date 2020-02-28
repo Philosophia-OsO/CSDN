@@ -1,0 +1,20 @@
+bool Insert(T e)
+{
+  BiTNode<T> *p, *s;
+  if(!SearchBST(root, e.key, NULL, p))
+  {
+    s=new BiTNode<T>;
+    s->data=e;
+    s->lchild=s->rchild=NULL;
+    if(p==NULL)
+      root=s;
+    else if LT(e.key, p->data.key)
+      p->lchild=s;
+    else
+      p->rchild=s;
+    return true;
+  }
+  else
+    return false;
+}
+

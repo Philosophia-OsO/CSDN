@@ -1,0 +1,11 @@
+void ClearList()const
+{
+  LNode<T> *q, *p=Head->next;
+  Head->next=NULL;
+  while(p!=NULL)
+  {
+    q=p->next;
+    delete p;
+    p=q;
+  }
+}

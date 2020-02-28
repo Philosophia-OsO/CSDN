@@ -1,0 +1,24 @@
+void Path(int v0, int v)
+{
+  vector<bool> path=P[v];
+  VRType min;
+  int i, j=0, k, m;
+  for(i=0; i<vexs.size(); i++)
+    if(path[i])
+      j++;
+  path[v0]=false;
+  if(j!=0)
+    j--;
+  k=v0;
+  while(j>0)
+  {
+    min=INFINITY;
+    for(i=0; i<vexs.size(); i++)
+      if(path[i]&&vexs[k].arcs[i].adj<min)
+        min=vexs[k].arcs[i].adj, m=i;
+    k=m;
+    path[k]=false;
+    j--;
+  }
+}
+

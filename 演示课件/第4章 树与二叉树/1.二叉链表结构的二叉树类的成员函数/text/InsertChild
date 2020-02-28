@@ -1,0 +1,23 @@
+bool InsertChild(BiTNode<T>* &p, bool LR, BiTree<T> &c)
+{
+ 
+ 
+  BiTNode<T> *q=c.root();
+  c.root=NULL;
+  if(p!=NULL)
+  {
+    if(!LR)
+    {
+      q->rchild=p->lchild;
+      p->lchild=q;
+    }
+    else
+    {
+      q->rchild=p->rchild;
+      p->rchild=q;
+    }
+    return true;
+  }
+  return false;
+}
+

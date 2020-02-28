@@ -1,0 +1,12 @@
+int NextAdjVex(int i, int j)const
+{
+  VRType m=0;
+  if(Weight)
+    m=INFINITY;
+  if(vexs[i].arcs[j].adj!=m)
+    for(int k=j+1; k<vexs.size(); k++)
+      if(i!=k && vexs[i].arcs[k].adj!=m)
+        return k;
+  return -1;
+}
+

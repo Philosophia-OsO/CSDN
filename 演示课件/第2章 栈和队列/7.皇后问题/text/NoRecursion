@@ -1,0 +1,44 @@
+void NoRecursion(int n, string FileName)
+{
+  Init(n);
+  int number=0, i=0, j=0;
+  fout.open(FileName.c_str(), ios::out);
+  fout<<"非递归求解"<<N<<"皇后问题的所有解："<<endl;
+  while(i>=0)
+  {
+    while(j<N)
+    {
+      if(MarkArray[i][j]==-1)
+        break;
+      j++;
+    }
+    if(j<N)
+    {
+      solution[i]=j;
+      Mark(i, j, true);
+      if(i==N-1)
+      {
+        PutOutToFile(++number);
+        Mark(i, j, false);
+        i--;
+        j=solution[i];
+        Mark(i, j, false);
+        j++;
+      }
+      else
+        i++, j=0;
+    }
+    else
+    {
+      i--;
+      if(i>=0)
+      {
+        j=solution[i];
+        Mark(i, j, false);
+        j++;
+      }
+    }
+  }
+  fout.close();
+}
+

@@ -1,0 +1,10 @@
+bool GetTop(T &e)const
+{
+  if(top>base)
+  {
+    e=*(top-1);
+    return true;
+  }
+  else
+    return false;
+}

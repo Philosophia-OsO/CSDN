@@ -1,0 +1,24 @@
+void TransposeSMatrix(const RLSMatrix &M)
+{
+  int i, j, k;
+  vector<int> colm;
+  col=M.rpos.size();
+  if(M.data.size())
+  {
+    data.resize(M.data.size());
+    rpos.assign(M.col, 0);
+    for(i=0; i<data.size(); i++)
+      for(j=M.data[i].j+1; j<rpos.size(); j++)
+        rpos[j]++;
+    colm=rpos;
+    for(i=0; i<data.size(); i++)
+    {
+      j=M.data[i].j;
+      k=colm[j]++;
+      data[k].i=j;
+      data[k].j=M.data[i].i;
+      data[k].e=M.data[i].e;
+    }
+  }
+}
+

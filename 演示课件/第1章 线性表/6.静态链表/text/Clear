@@ -1,0 +1,12 @@
+void ClearList()
+{
+  int j, i=SL[MAX_SIZE-1].link;
+  while(i)
+  {
+    j=i;
+    i=SL[i].link;
+  }
+  SL[j].link=SL[0].link;
+  SL[0].link=0;
+}
+

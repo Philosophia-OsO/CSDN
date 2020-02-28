@@ -1,0 +1,8 @@
+bool GetElem(int i, T &e)const
+{
+  if(i<0 || i>=length)
+    return false;
+  e=*(elem+i);
+  return true;
+}
+

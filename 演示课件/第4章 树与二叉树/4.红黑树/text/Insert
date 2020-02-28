@@ -1,0 +1,29 @@
+bool Insert(T e)
+{
+  RBTNode<T> *p, *s;
+  if(!SearchBST(root, e.key, NULL, p))
+  {
+    s=new RBTNode<T>;
+    s->data=e;
+    s->lchild=s->rchild=NULL;
+    if(p==NULL)
+    {
+      root=s;
+      s->RB=Black;
+    }
+    else
+    {
+      if LT(e.key, p->data.key)
+        p->lchild=s;
+      else
+        p->rchild=s;
+      s->RB=Red;
+      if(p->RB==Red)
+        AdjustDoubleRed(s, p);
+    }
+    return true;
+  }
+  else
+    return false;
+}
+

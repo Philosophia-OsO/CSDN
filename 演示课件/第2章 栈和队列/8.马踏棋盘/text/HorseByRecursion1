@@ -1,0 +1,19 @@
+void HorseByRecursion(PosType Now, int count, int &number)
+{
+  PosType Next;
+  for(int m=0; m<8; m++)
+  {
+    Next=Now+HTry[m];
+    if(Chessboard[Next.row][Next.col]==0)
+    {
+      Chessboard[Next.row][Next.col]=++count;
+      if(count<N*N)
+        HorseByRecursion(Next, count, number);
+      else
+        PrintToFile(++number);
+      Chessboard[Next.row][Next.col]=0;
+      count--;
+    }
+  }
+}
+

@@ -1,0 +1,12 @@
+void Bank(int n=2, int k=480, int i=8, int j=20)
+{
+ 
+  Qn=n;
+  CloseTime=k;
+  Khjg=i;
+  Blsj=j;
+  Initialize();
+  q=new LinkQueue<QElemType>[Qn];
+  Bank_Simulation();
+}
+

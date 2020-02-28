@@ -1,0 +1,19 @@
+void SelectSort(bool bOrder = true, bool bFlag = true)
+{
+  int i, j;
+  if (bFlag)
+    for(i=0; i<elem.size()-1; i++)
+    {
+      j=SelectKey(i, bOrder, bFlag);
+      if(i!=j)
+        swap(elem[i], elem[j]);
+    }
+  else
+    for(i=elem.size()-1; i>0; i--)
+    {
+      j=SelectKey(i, !bOrder, bFlag);
+      if(i!=j)
+        swap(elem[i], elem[j]);
+    }
+}
+

@@ -1,0 +1,8 @@
+void TraverseHash(void(*visit)(int, D))const
+{
+  int i;
+  for(i=0; i<capacity; i++)
+    if(elem[i].key!=EMPTY && elem[i].key!=TOMB)
+      visit(i, elem[i]);
+}
+

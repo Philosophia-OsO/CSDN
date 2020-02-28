@@ -1,0 +1,33 @@
+void PostOrderTraverse(void(*visit)(BiTNode<T>&))const
+{
+  StackElem<T> se;
+  stack<StackElem<T> > s;
+  BiTNode<T> *t=root;
+  if(t==NULL)
+    return;
+  while(!s.empty() || t!=NULL)
+  {
+    while(t!=NULL)
+    {
+      se.p=t;
+      se.flag=Left;
+      s.push(se);
+      t=t->lchild;
+    }
+    se=s.top();
+    s.pop();
+    t=se.p;
+    if(se.flag==Left)
+    {
+      se.flag=Right;
+      s.push(se);
+      t=t->rchild;
+    }
+    else
+    {
+      visit(*t);
+      t=NULL;
+    }
+  }
+}
+

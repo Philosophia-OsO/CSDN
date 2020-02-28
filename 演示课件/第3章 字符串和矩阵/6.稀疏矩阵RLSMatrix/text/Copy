@@ -1,0 +1,7 @@
+void CopySMatrix(const RLSMatrix &M)
+{
+  col=M.col;
+  data=M.data;
+  rpos=M.rpos;
+}
+

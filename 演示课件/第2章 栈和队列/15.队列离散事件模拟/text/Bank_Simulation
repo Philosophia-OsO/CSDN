@@ -1,0 +1,13 @@
+void Bank_Simulation()
+{
+  while(!ev.empty())
+  {
+    en=ev.top();
+    ev.pop();
+    if(en.NType==Qn)
+      CustomerArrived();
+    else
+      CustomerDeparture();
+  }
+}
+

@@ -1,0 +1,28 @@
+void MakeMatrixFromFile(string FileName)
+{
+  int i, j, k;
+  ifstream fin(FileName.c_str());
+  fin>>k>>col>>j;
+  rpos.assign(k, 0);
+  data.resize(j);
+  for(i=0; i<j; i++)
+  {
+    fin>>data[i].i>>data[i].j>>data[i].e;
+    if(data[i].i<0 || data[i].i>=rpos.size() || data[i].j<0 || data[i].j>=col)
+    {
+      cout<<"矩阵的行或列超出范围。"<<endl;
+      exit(0);
+    }
+    if(i>0)
+      if(data[i].i<data[i-1].i || data[i].i==data[i-1].i && data[i].j<=data[i-1].j)
+      {
+        cout<<"元素没有按顺序输入。"<<endl;
+        exit(0);
+      }
+  }
+  fin.close();
+  for(i=0; i<data.size(); i++)
+    for(j=data[i].i+1; j<rpos.size(); j++)
+      rpos[j]++;
+}
+

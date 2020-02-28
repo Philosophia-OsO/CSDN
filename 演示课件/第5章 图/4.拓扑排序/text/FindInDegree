@@ -1,0 +1,10 @@
+void FindInDegree()
+{
+  int i;
+  list<ArcTNode<ArcT> >::const_iterator p;
+  indegree.assign(vexs.size(), 0);
+  for(i=0; i<vexs.size(); i++)
+    for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+      indegree[p->adjvex]++;
+}
+

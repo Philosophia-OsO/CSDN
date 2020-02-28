@@ -1,0 +1,5 @@
+void QueueTraverse(void(*visit)(T&))const
+{
+  ListTraverse(visit);
+}
+

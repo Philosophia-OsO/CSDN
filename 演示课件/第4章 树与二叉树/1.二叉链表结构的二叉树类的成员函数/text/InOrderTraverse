@@ -1,0 +1,21 @@
+void InOrderTraverse(void(*visit)(BiTNode<T>&))const
+{
+  stack<BiTNode<T>*> s;
+  BiTNode<T> *t=root;
+  while(t!=NULL || !s.empty())
+  {
+    if(t!=NULL)
+    {
+      s.push(t);
+      t=t->lchild;
+    }
+    else
+    {
+      t=s.top();
+      s.pop();
+      visit(*t);
+      t=t->rchild;
+    }
+  }
+}
+

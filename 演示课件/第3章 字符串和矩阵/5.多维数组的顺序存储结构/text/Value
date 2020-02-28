@@ -1,0 +1,11 @@
+bool Value(T &e, int n, ...)const
+{
+  va_list ap;
+  int off;
+  va_start(ap, n);
+  if(Locate(ap, off)==false)
+    return false;
+  e=base[off];
+  return true;
+}
+

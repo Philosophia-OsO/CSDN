@@ -1,0 +1,19 @@
+bool ListInsert(int i, T e)
+{
+  int j=0;
+  LNode<T> *s, *p=Head;
+  while(p!=NULL && j<i-1)
+  {
+    j++;
+    p=p->next;
+  }
+  if(p==NULL || j>i-1)
+    return false;
+  s=new LNode<T>;
+  if(s==NULL)
+    return false;
+  s->data=e;
+  s->next=p->next;
+  p->next=s;
+  return true;
+}

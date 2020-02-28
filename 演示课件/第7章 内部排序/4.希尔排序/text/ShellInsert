@@ -1,0 +1,14 @@
+void ShellInsert(int dk)
+{
+  int j;
+  D temp;
+  for(int i=dk; i<elem.size(); i++)
+    if LT(elem[i].key, elem[i-dk].key)
+    {
+      temp=elem[i];
+      for(j=i-dk; j>=0 && LT(temp.key, elem[j].key); j-=dk)
+        elem[j+dk]=elem[j];
+      elem[j+dk]=temp;
+    }
+}
+

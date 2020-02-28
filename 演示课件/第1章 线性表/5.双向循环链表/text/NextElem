@@ -1,0 +1,12 @@
+bool NextElem(T e, bool(*eq)(T, T), T &next_e)const
+{
+ 
+  DLNode<T> *p=GetElemE(e, eq);
+  if(p!=NULL && p->next!=Head)
+  {
+    next_e=p->next->data;
+    return true;
+  }
+  return false;
+}
+

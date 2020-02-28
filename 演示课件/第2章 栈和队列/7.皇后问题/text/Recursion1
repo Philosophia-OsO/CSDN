@@ -1,0 +1,10 @@
+void Recursion(int n, string FileName)
+{
+  Init(n);
+  fout.open(FileName.c_str(), ios::out);
+  fout<<"递归求解"<<N<<"皇后问题的所有解："<<endl;
+  int number=0;
+  Recursion(0, number);
+  fout.close();
+}
+

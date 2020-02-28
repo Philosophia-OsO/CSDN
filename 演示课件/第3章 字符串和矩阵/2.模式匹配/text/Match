@@ -1,0 +1,18 @@
+int Match(T P, T R, int pos, bool flag)
+{
+  T Q;
+  Q=R.substr(pos, R.size()-pos);
+  int n=Q.size(), i=0;
+  int m=P.size(), j=0;
+  Next.assign(m, -1);
+  buildNext(P, flag);
+  while(j<m && i<n)
+  {
+    if(0>j || Q[i]==P[j])
+      i++, j++;
+    else 
+      j=Next[j];
+  }
+  return i-j+pos;
+}
+

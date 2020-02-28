@@ -1,0 +1,8 @@
+SqList(int k=1)
+{
+  elem=new T[k];
+  assert(elem!=NULL);
+  length=0;
+  listsize=k;
+}
+

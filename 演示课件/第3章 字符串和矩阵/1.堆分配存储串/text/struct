@@ -1,0 +1,10 @@
+HString类的数据成员：
+  char *ch;
+  int length;
+
+HString()
+{
+  ch=NULL;
+  length=0;
+}
+

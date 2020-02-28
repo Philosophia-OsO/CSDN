@@ -1,0 +1,14 @@
+int Index(const HString &S, int pos)const
+{
+ 
+  HString sub;
+  if(pos>=0)
+    for(int i=pos; i<=length-S.length; i++)
+    {
+      sub=substr(i, S.length);
+      if(sub.StrCompare(S)==0)
+        return i;
+    }
+  return -1;
+}
+

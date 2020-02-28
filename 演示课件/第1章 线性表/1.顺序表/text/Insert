@@ -1,0 +1,23 @@
+bool ListInsert(int i, T e)
+{
+  T *newbase, *q, *p;
+  if(i<0 || i>length)
+    return false;
+  if(length==listsize)
+  {
+    newbase=new T[listsize*2];
+    assert(newbase!=NULL);
+    for(int j=0; j<length; j++)
+      *(newbase+j)=*(elem+j);
+    delete[]elem;
+    elem=newbase;
+    listsize*=2;
+  }
+  q=elem+i;
+  for(p=elem+length-1; p>=q; p--)
+    *(p+1)=*p;
+  *q=e;
+  length++;
+  return true;
+}
+

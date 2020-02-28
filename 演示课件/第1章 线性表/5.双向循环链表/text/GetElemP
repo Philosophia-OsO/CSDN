@@ -1,0 +1,20 @@
+DLNode<T>* GetElemP(int i)const
+{
+ 
+  int j=0;
+  DLNode<T> *p=Head;
+  if(i<0)
+    return NULL;
+  if(i==0)
+    return p;
+  do
+  {
+    p=p->next;
+    j++;
+  }while(p!=Head && j<i);
+  if(p==Head)
+    return NULL;
+  else
+    return p;
+}
+

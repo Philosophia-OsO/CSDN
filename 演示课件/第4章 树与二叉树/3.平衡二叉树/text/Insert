@@ -1,0 +1,7 @@
+bool Insert(T e)
+{
+ 
+  bool taller;
+  return InsertAVL(root, e, taller);
+}
+

@@ -1,0 +1,26 @@
+void HeapAdjustDown(int low, int high, bool flag)
+{
+ 
+  D temp=elem[low];
+  for(int j=2*low+1; j<=high; j=j*2+1)
+  {
+    if(flag)
+    {
+      if(j<high && LT(elem[j].key, elem[j+1].key))
+        j++;
+      if(GE(temp.key, elem[j].key))
+        break;
+    }
+    else
+    {
+      if(j<high && GT(elem[j].key, elem[j+1].key))
+        j++;
+      if(LE(temp.key, elem[j].key))
+        break;
+    }
+    elem[low]=elem[j];
+    low=j;
+  }
+  elem[low]=temp;
+}
+

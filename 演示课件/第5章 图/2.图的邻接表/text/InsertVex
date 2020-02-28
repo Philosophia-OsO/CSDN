@@ -1,0 +1,6 @@
+void InsertVex(VerT v)
+{
+  vexs.resize(vexs.size()+1);
+  vexs[vexs.size()-1].vex=v;
+}
+

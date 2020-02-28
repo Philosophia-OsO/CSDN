@@ -1,0 +1,42 @@
+void ShortestPath_DIJ(int v0)
+{
+ 
+ 
+  int v, w, i, j;
+  VRType min;
+  final.assign(vexs.size(), false);
+  D.assign(vexs.size(), 0);
+  P.assign(vexs.size());
+  for(v=0; v<vexs.size(); v++)
+  {
+    D[v]=vexs[v0].arcs[v].adj;
+    P[v].assign(vexs.size(), false);
+    if(D[v]<INFINITY)
+      P[v][v0]=P[v][v]=true;
+      
+  }
+  final[v0]=true;
+  for(i=1; i<vexs.size(); i++)
+  {
+    min=INFINITY;
+    for(w=0; w<vexs.size(); w++)
+      if(!final[w] && D[w]<min)
+      {
+        v=w;
+        min=D[w];
+      }
+    final[v]=true;
+    for(w=0; w<vexs.size(); w++)
+    
+      if(!final[w] && min<INFINITY && vexs[v].arcs[w].adj<
+      INFINITY && (min+vexs[v].arcs[w].adj<D[w]))
+      {
+        D[w]=min+vexs[v].arcs[w].adj;
+        for(j=0; j<vexs.size(); j++)
+        
+          P[w][j]=P[v][j];
+        P[w][w]=true;
+      }
+  }
+}
+

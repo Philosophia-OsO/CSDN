@@ -1,0 +1,12 @@
+void CreatFromFile(string  FileName)
+{
+  D d;
+  ifstream fin(FileName.c_str());
+  while(!fin.eof())
+  {
+    if(InputFromFile(fin, d))
+      v.push_back(d);
+  }
+  fin.close();
+}
+

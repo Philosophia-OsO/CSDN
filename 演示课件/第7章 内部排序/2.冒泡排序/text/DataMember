@@ -1,0 +1,10 @@
+template<typename D>class BubSort的数据成员
+vector<D> elem;
+
+模板D的实参ID：
+struct ID
+{
+  int key;
+  int order;
+};
+

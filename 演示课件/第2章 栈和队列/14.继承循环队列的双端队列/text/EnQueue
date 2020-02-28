@@ -1,0 +1,22 @@
+bool EnQueue(T e)
+{
+  T *newbase;
+  int i;
+  if((rear+1)%queuesize==front)
+  {
+    newbase=new T[queuesize*2];
+    if(newbase==NULL)
+      return false;
+    for(i=0; i<queuesize-1; i++)
+      *(newbase+i)=*(base+(front+i)%queuesize);
+    delete[]base;
+    base=newbase;
+    front=0;
+    rear=queuesize-1;
+    queuesize*=2;
+  }
+  *(base+rear)=e;
+  rear=++rear%queuesize;
+  return true;
+}
+

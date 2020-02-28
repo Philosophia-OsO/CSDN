@@ -1,0 +1,20 @@
+bool SearchBST(BiTNode<T>* &p, KeyType key, BiTNode<T>* f, BiTNode<T>* &q)const
+{
+ 
+ 
+  if(p==NULL)
+  {
+    q=f;
+    return false;
+  }
+  else if EQ(key, p->data.key)
+  {
+    q=p;
+    return true;
+  }
+  else if LT(key, p->data.key)
+    return SearchBST(p->lchild, key, p, q);
+  else
+    return SearchBST(p->rchild, key, p, q);
+}
+

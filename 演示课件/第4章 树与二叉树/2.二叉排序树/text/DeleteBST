@@ -1,0 +1,18 @@
+bool DeleteBST(BiTNode<T>* &p, KeyType key)
+{
+  if(p==NULL)
+    return false;
+  else
+  {
+    if EQ(key, p->data.key)
+    {
+      Delete(p);
+      return true;
+    }
+    else if LT(key, p->data.key)
+      return DeleteBST(p->lchild, key);
+    else
+      return DeleteBST(p->rchild, key);
+  }
+}
+

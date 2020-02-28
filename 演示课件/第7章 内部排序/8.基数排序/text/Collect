@@ -1,0 +1,9 @@
+void Collect()
+{
+  for(int j=0; j<=RADIX; j++)
+  {
+    v.insert(v.end(), barrel[j].begin(), barrel[j].end());
+    barrel[j].clear();
+  }
+}
+

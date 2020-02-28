@@ -1,0 +1,20 @@
+bool DeleteArc(VerT v, VerT w)
+{
+  int i, k;
+  VRType j=0;
+  if(Weight)
+    j=INFINITY;
+  i=LocateVex(v);
+  k=LocateVex(w);
+  if(i<0 || k<0 || i==k)
+    return false;
+  if(vexs[i].arcs[k].adj != j)
+  {
+    vexs[i].arcs[k].adj=j;
+    if(!Directed)
+      vexs[k].arcs[i].adj=j;
+    ArcNum--;
+  }
+  return true;
+}
+

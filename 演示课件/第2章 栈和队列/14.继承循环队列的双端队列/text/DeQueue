@@ -1,0 +1,9 @@
+bool DeQueue(T &e)
+{
+  if(front==rear)
+    return false;
+  e=*(base+front);
+  front=++front%queuesize;
+  return true;
+}
+

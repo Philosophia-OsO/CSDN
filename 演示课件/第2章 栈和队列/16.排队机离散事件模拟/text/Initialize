@@ -1,0 +1,9 @@
+void Initialize()
+{
+  TotalTime=0;
+  CustomerNum=0;
+  en.OccurTime=0;
+  en.NType=Qn;
+  ev.push(en);
+}
+

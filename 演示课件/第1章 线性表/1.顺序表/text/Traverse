@@ -1,0 +1,6 @@
+void ListTraverse(void(*visit)(T&))const
+{
+  for(int i=0; i<length; i++)
+    visit(elem[i]);
+}
+

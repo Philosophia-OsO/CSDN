@@ -1,0 +1,35 @@
+bool SearchHash(KeyType Key, int &p, int &c)
+{
+ 
+ 
+  if(Key==EMPTY || Key==TOMB)
+    return false;
+  int c1, tomb=-1;
+  c=0;
+  p=Hash(Key);
+  while(elem[p].key==TOMB || elem[p].key!=EMPTY && !EQ(Key, elem[p].key))
+  {
+    if(elem[p].key==TOMB && tomb==-1)
+    {
+      tomb=p;
+      c1=c;
+    }
+    c++;
+    if(c<=hashsize[sizeindex]/2)
+      collision(Key, p, c);
+    else
+      break;
+  }
+  if EQ(Key, elem[p].key)
+    return true;
+  else
+  {
+    if(tomb!=-1)
+    {
+      p=tomb;
+      c=c1;
+    }
+    return false;
+  }
+}
+

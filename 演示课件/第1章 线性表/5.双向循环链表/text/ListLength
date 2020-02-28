@@ -1,0 +1,12 @@
+int ListLength()const
+{
+  int i=0;
+  DLNode<T> *p=Head->next;
+  while(p!=Head)
+  {
+    i++;
+    p=p->next;
+  }
+  return i;
+}
+

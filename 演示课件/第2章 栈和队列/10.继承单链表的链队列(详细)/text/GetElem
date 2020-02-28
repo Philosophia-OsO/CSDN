@@ -1,0 +1,14 @@
+bool GetElem(int i, T &e)const
+{
+  int j=1;
+  LNode<T> *p=Head->next;
+  while(p!=NULL&&j<i)
+  {
+    j++;
+    p=p->next;
+  }
+  if(p==NULL || j>i)
+    return false;
+  e=p->data;
+  return true;
+}

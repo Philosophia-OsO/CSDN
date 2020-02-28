@@ -1,0 +1,27 @@
+void BFSTraverse(void(*visit)(VerT))
+{
+  int i, j, k;
+  vector<bool> Visited(vexs.size(), false);
+  queue<int> q;
+  for(i=0; i<vexs.size(); i++)
+    if(!Visited[i])
+    {
+      Visited[i]=true;
+      visit(GetVex(i));
+      q.push(i);
+      while(!q.empty())
+      {
+        j=q.front();
+        q.pop();
+        for(k=FirstAdjVex(j); k>=0; k=NextAdjVex(j, k))
+        
+          if(!Visited[k])
+          {
+            Visited[k]=true;
+            visit(GetVex(k));
+            q.push(k);
+          }
+      }
+    }
+}
+

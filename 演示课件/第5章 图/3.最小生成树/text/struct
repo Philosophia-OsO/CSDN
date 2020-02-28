@@ -1,0 +1,22 @@
+struct closedge
+{
+  int adjv;
+  VRType lowc;
+};
+
+vector<closedge> mindge;
+
+struct side
+{
+  int a, b;
+  VRType weight;
+};
+
+struct cmp
+{
+  bool operator()(const side &a, const side &b)const
+  {
+    return a.weight>b.weight;
+  }
+};
+

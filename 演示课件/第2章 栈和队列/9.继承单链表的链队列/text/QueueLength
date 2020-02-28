@@ -1,0 +1,5 @@
+int QueueLength()const
+{
+  return ListLength();
+}
+

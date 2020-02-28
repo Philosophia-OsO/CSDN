@@ -1,0 +1,10 @@
+struct PosType
+{
+  int row, col;
+};
+struct PosDirect:public PosType
+{
+  int direct;
+};
+const PosType direc[4]={{1,0},{0,1},{0,-1},{-1,0}};
+vector<vector<int> >maze;

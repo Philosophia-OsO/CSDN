@@ -1,0 +1,13 @@
+void CreateFromFile(string FileName)
+{
+  D r;
+  ifstream fin(FileName.c_str());
+  while(!fin.eof())
+    if(InputFromFile(fin, r))
+    {
+      bool f=InsertDLTree(r);
+      if(!f)
+        cout<<"record中已有关键字为"<<r.key<<"的数据，无法插入。"<<endl;
+    }
+  fin.close();
+}

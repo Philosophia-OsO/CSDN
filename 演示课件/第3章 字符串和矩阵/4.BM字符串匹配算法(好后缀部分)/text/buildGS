@@ -1,0 +1,13 @@
+void buildGS(T P)
+{
+  int i, j;
+  buildSS(P);
+  GS.assign(p, p);
+  for(i=0, j=p-1; j>=0; j--)
+    if(j+1==SS[j])
+      while(i<p-j-1)
+        GS[i++]=p-j-1;
+  for(j=0; j<p-1; j++)
+    GS[p-SS[j]-1]=p-j-1;
+}
+

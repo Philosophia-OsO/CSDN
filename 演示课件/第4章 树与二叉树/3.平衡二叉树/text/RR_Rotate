@@ -1,0 +1,8 @@
+void RR_Rotate(AVLTNode<T>* &p)
+{
+  AVLTNode<T> *rc=p->rchild;
+  p->rchild=rc->lchild;
+  rc->lchild=p;
+  p=rc;
+}
+

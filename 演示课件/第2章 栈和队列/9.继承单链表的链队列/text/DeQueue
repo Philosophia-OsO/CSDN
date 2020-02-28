@@ -1,0 +1,7 @@
+bool DeQueue(T &e)
+{
+  bool flag=ListDelete(1, e);
+  if(Head->next==NULL)
+    rear=Head;
+  return flag;
+}

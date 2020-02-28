@@ -1,0 +1,87 @@
+T Expression(string FileName, bool flag)
+{
+  SqStack<char>OPTR(10);
+  SqStack<T>OPND(10);
+  string s;
+  ifstream fin(FileName.c_str());
+  fin>>s;
+  T a, b, d;
+  int i=0;
+  char c, x;
+  OPTR.Push('#');
+  if(flag)
+    cout<<"不出现负号的整型算术表达式及运算结果："<<s;
+  else
+    cout<<"可以出现负号和小数的算术表达式及运算结果："<<s;
+  s=s+'#';
+  c=s[i++];
+  OPTR.GetTop(x);
+  while(c!='#' || x!='#')
+  {
+    if(In(c))
+    {
+      if(!flag)
+        if(c=='-' && i==1 || c=='(' && s[i]=='-')
+          OPND.Push(0);
+      switch(Precede(x, c))
+      {
+      case'<':OPTR.Push(c);
+          if(i<s.length())
+            c=s[i++];
+          break;
+      case'=':OPTR.Pop(x);
+          if(i<s.length())
+            c=s[i++];
+          break;
+      case'>':OPTR.Pop(x);
+          OPND.Pop(b);
+          OPND.Pop(a);
+          d=Operate(a, x, b);
+          OPND.Push(d);
+      }
+    }
+    else
+    {
+      if(c>='0' && c<='9')
+      {
+        d=0;
+        while(c>='0' && c<='9')
+        {
+          d=d*10+c-'0';
+          if(i<s.length())
+          {
+            c=s[i++];
+            if(!flag)
+              if(c=='.')
+              {
+                int n=10;
+                c=s[i++];
+                while(c>='0' && c<='9')
+                {
+                  d=d+((double)(c-'0'))/n;
+                  n=n*10;
+                  if(i<s.length())
+                    c=s[i++];
+                }
+              }
+          }
+        }
+        OPND.Push(d);
+      }
+      else
+      {
+        cout<<"出现非法字符"<<endl;
+        exit(1);
+      }
+    }
+    OPTR.GetTop(x);
+  }
+  OPND.Pop(a);
+  if(!OPND.StackEmpty())
+  {
+    cout<<"表达式不正确"<<endl;
+    exit(1);
+  }
+  return a;
+}
+

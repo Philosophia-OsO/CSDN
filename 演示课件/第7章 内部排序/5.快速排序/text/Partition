@@ -1,0 +1,23 @@
+int Partition(int low, int high)
+{
+ 
+  int i=low, j=high;
+  if(!flag)
+  {
+    int val=rand()%(high-low)+low;
+    swap(elem[val], elem[low]);
+  }
+  D temp=elem[low];
+  while(low<high)
+  {
+    while(low<high && GE(elem[high].key, temp.key))
+      high--;
+    elem[low]=elem[high];
+    while(low<high && LE(elem[low].key, temp.key))
+      low++;
+    elem[high]=elem[low];
+  }
+  elem[low]=temp;
+  return low;
+}
+

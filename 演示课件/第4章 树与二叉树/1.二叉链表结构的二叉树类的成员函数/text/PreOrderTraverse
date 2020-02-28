@@ -1,0 +1,20 @@
+void PreOrderTraverse(void(*visit)(BiTNode<T>&))const
+{
+  stack<BiTNode<T>*> s;
+  BiTNode<T> *t=root;
+  s.push(NULL);
+  while(t!=NULL)
+  {
+    visit(*t);
+    if(t->rchild!=NULL)
+      s.push(t->rchild);
+    if(t->lchild!=NULL)
+      t=t->lchild;
+    else
+    {
+      t=s.top();
+      s.pop();
+    }
+  }
+}
+

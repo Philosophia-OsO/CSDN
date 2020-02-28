@@ -1,0 +1,31 @@
+bool InsertHash(D e)
+{
+ 
+  if(e.key==EMPTY || e.key==TOMB)
+    return false;
+  if(type==-1)
+  {
+    cout<<"请输入探查法的类型（0：线性；1：二次；2：双散列；3：随机）：";
+    cin>>type;
+    if(type==3)
+      Random();
+  }
+  int p, c;
+  if(SearchHash(e.key, p, c))
+    return false;
+  else if(c<hashsize[sizeindex]/2)
+  {
+    elem[p]=e;
+    count++;
+    return true;
+  }
+  else
+  {
+    cout<<"按哈希地址的顺序遍历重建前的哈希表："<<endl;
+    TraverseHash(Visit);
+    cout<<"重建哈希表"<<endl;
+    RecreateHashTable(e);
+    return true;
+  }
+}
+

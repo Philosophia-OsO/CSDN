@@ -1,0 +1,12 @@
+DLNode<T>* GetElemE(T e, bool(*eq)(T, T))const
+{
+ 
+  DLNode<T> *p=Head->next;
+  while(p!=Head && !eq(p->data, e))
+    p=p->next;
+  if(p==Head)
+    return NULL;
+  else
+    return p;
+}
+

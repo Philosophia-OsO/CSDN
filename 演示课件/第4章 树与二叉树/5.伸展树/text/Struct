@@ -1,0 +1,13 @@
+template<typename T>struct BiTNode
+{
+  T data;
+  BiTNode<T> *lchild, *rchild;
+};
+//一个数据成员
+BiTNode<T> *root;
+
+BiTree()
+{
+  root=NULL;
+}
+

@@ -1,0 +1,10 @@
+int BiTreeDepth(BiTNode<T>* t)const
+{
+  int i, j;
+  if(t==NULL)
+    return 0;
+  i=BiTreeDepth(t->lchild);
+  j=BiTreeDepth(t->rchild);
+  return i>j ? i+1 : j+1;
+}
+

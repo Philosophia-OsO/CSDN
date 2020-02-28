@@ -1,0 +1,25 @@
+void MiniSpanTree_PRIM(int k)
+{
+  mindge.assign(vexs.size());
+  if(vexs.size()>0 && Weight && !Directed)
+  {
+    int i, j, m;
+    for(j=0; j<vexs.size(); j++)
+    {
+      mindge[j].adjv=k;
+      mindge[j].lowc=vexs[k].arcs[j].adj;
+    }
+    for(i=1; i<vexs.size(); i++)
+    {
+      m=minimum();
+      mindge[m].lowc=0;
+      for(j=0; j<vexs.size(); j++)
+        if(vexs[m].arcs[j].adj<mindge[j].lowc)
+        {
+          mindge[j].adjv=m;
+          mindge[j].lowc=vexs[m].arcs[j].adj;
+        }
+    }
+  }
+}
+

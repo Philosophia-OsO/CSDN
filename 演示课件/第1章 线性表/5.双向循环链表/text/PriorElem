@@ -1,0 +1,12 @@
+bool PriorElem(T e, bool(*eq)(T, T), T &pre_e)const
+{
+ 
+  DLNode<T> *p=GetElemE(e, eq);
+  if(p!=NULL && p->prior!=Head)
+  {
+    pre_e=p->prior->data;
+    return true;
+  }
+  return false;
+}
+

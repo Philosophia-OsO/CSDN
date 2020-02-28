@@ -1,0 +1,22 @@
+bool StrInsert(int pos, const HString &S)
+{
+  int i;
+  if(pos<0 || pos>length)
+    return false;
+  if(S.length)
+  {
+    char *p=new char[length+S.length];
+    assert(p!=NULL);
+    for(i=0; i<pos; i++)
+      p[i]=ch[i];
+    for(i=0; i<S.length; i++)
+      p[pos+i]=S[i];
+    for(i=pos; i<length; i++)
+      p[i+S.length]=ch[i];
+    length+=S.length;
+    delete[]ch;
+    ch=p;
+  }
+  return true;
+}
+

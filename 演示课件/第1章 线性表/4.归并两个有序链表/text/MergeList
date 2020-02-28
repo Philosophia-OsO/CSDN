@@ -1,0 +1,22 @@
+void MergeList(LinkList<T> &La, LinkList<T> &Lb)
+{
+  LNode<T> *pa=La.Head->next, *pb=Lb.Head->next, *p;
+  
+  p=La.Head;
+  while(pa && pb)
+    if(pa->data<=pb->data)
+    {
+      p->next=pa;
+      p=pa;
+      pa=pa->next;
+    }
+    else
+    {
+      p->next=pb;
+      p=pb;
+      pb=pb->next;
+    }
+  p->next=pa ? pa : pb;
+  Lb.Head->next=NULL;
+}
+

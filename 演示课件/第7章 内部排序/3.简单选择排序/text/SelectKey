@@ -1,0 +1,23 @@
+int SelectKey(int i, bool bMaxOrMin, bool bFlag)
+{
+  int j, k=i;
+  KeyType maxOrmin=elem[i].key;
+  if (bFlag)
+  {
+    for(j=i+1; j<elem.size(); j++)
+      if (bMaxOrMin && LT(elem[j].key, maxOrmin) || !bMaxOrMin && GT(elem[j].key, maxOrmin))
+      {
+        k=j;
+        maxOrmin=elem[j].key;
+      }
+  }
+  else
+    for(j=i-1; j>=0; j--)
+      if (bMaxOrMin && LT(elem[j].key, maxOrmin) || !bMaxOrMin && GT(elem[j].key, maxOrmin))
+      {
+        k=j;
+        maxOrmin=elem[j].key;
+      }
+  return k;
+}
+

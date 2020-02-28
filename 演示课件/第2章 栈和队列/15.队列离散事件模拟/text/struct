@@ -1,0 +1,35 @@
+class BankQueue
+{
+protected:
+  struct QElemType
+  {
+    int ArrivalTime;
+    int Duration;
+  };
+  struct Event
+  {
+    int OccurTime;
+    int NType;
+  };
+  class cmp
+  {
+  public:
+    bool operator()(const Event a, const Event b)const
+    {
+      return (a.OccurTime>b.OccurTime);
+    }
+  };
+  int Qn, CustomerNum, CloseTime;
+  int Khjg, Blsj;
+  priority_queue<Event, vector<Event>, cmp> ev;
+  Event en;
+  long int TotalTime;
+  virtual void CustomerArrived()=0;
+  virtual void CustomerDeparture()=0;
+};
+class BankN:public BankQueue
+{
+private:
+  LinkQueue<QElemType> *q;
+};
+

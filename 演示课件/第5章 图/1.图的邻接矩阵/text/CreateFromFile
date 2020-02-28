@@ -1,0 +1,40 @@
+void CreateFromFile(string FileName)
+{
+  int i, j, k;
+  VerT v1, v2;
+  ArcT arc;
+  ifstream fin(FileName.c_str());
+  fin>>boolalpha>>Directed;
+  fin>>boolalpha>>Weight;
+  if(Weight)
+    arc.adj=INFINITY;
+  else
+    arc.adj=0;
+  fin>>j;
+  vexs.assign(j);
+  for(i=0; i<vexs.size(); i++)
+  {
+    InputVertexFromFile(fin, vexs[i].vex);
+    vexs[i].arcs.assign(vexs.size(), arc);
+  }
+  if(Weight)
+    for(i=0; i<vexs.size(); i++)
+      vexs[i].arcs[i].adj=0;
+  else
+    arc.adj=1;
+  fin>>ArcNum;
+  for(k=0; k<ArcNum; k++)
+  {
+    InputVertexNameFromFile(fin, v1);
+    InputVertexNameFromFile(fin, v2);
+    if(Weight)
+      fin>>arc.adj;
+    i=LocateVex(v1);
+    j=LocateVex(v2);
+    vexs[i].arcs[j].adj=arc.adj;
+    InputArcFromFile(fin, vexs[i].arcs[j]);
+    if(!Directed)
+      vexs[j].arcs[i]=vexs[i].arcs[j];
+  }
+  fin.close();
+}

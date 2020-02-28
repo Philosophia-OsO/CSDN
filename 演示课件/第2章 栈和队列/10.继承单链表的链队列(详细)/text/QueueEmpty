@@ -1,0 +1,5 @@
+bool QueueEmpty()const
+{
+  return ListEmpty();
+}
+

@@ -1,0 +1,8 @@
+SqStack(int k=1)
+{
+  base=new T[k];
+  assert(base!=NULL);
+  top=base;
+  stacksize=k;
+}
+

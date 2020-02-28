@@ -1,0 +1,11 @@
+void MSort(int low, int high)
+{
+  if(low<high)
+  {
+    int m=(low+high)/2;
+    MSort(low, m);
+    MSort(m+1, high);
+    Merge(low, m, high);
+  }
+}
+

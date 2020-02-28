@@ -1,0 +1,14 @@
+void Distribute(int i)
+{
+  int j, k;
+  for(k=0; k<v.size(); k++)
+  {
+    if(v[k].key.length()<=i)
+      j=0;
+    else
+      j=ord(v[k].key[i]);
+    barrel[j].push_back(v[k]);
+  }
+  v.clear();
+}
+

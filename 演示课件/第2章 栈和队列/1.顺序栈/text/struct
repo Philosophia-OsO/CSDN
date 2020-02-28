@@ -1,0 +1,4 @@
+SqStack类的3个私有数据成员：
+  T *base, *top;
+  int stacksize;
+

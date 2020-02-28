@@ -1,0 +1,15 @@
+bool NextElem(T e, bool(*eq)(T, T), T &next_e)const
+{
+ 
+  LNode<T> *p=Head->next;
+  while(p!=NULL && p->next!=NULL)
+  {
+    if(eq(p->data, e))
+    {
+      next_e=p->next->data;
+      return true;
+    }
+    p=p->next;
+  }
+  return false;
+}

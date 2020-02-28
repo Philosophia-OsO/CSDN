@@ -1,0 +1,11 @@
+template<typename D>class QkSort的2个数据成员
+vector<D> elem;
+bool flag;
+
+模板D的实参ID：
+struct ID
+{
+  int key;
+  int order;
+};
+

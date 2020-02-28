@@ -1,0 +1,11 @@
+bool DeQueue(T &e)
+{
+  if(rear==0)
+    return false;
+  e=*base;
+  for(int i=1; i<rear; i++)
+    *(base+i-1)=*(base+i);
+  rear--;
+  return true;
+}
+

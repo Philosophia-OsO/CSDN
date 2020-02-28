@@ -1,0 +1,5 @@
+void ClearQueue()
+{
+  ClearList();
+  rear=Head;
+}

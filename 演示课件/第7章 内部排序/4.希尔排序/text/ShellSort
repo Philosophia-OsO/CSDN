@@ -1,0 +1,6 @@
+void ShellSort()
+{
+  for(int k=0; k<dt.size(); k++)
+    ShellInsert(dt[k]);
+}
+

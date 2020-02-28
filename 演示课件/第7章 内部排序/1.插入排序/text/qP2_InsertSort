@@ -1,0 +1,40 @@
+void P2_InsertSort()
+{
+  int i, j, first, final, mid;
+  vector<D> d;
+  d.resize(elem.size());
+  d[0]=elem[0];
+  first=final=0;
+  for(i=1; i<elem.size(); i++)
+  {
+    if(first>final)
+      j=elem.size();
+    else
+      j=0;
+    mid=(first+final+j)/2%elem.size();
+    if LT(elem[i].key, d[mid].key)
+    {
+      j=first;
+      first=(first-1+elem.size())%elem.size();
+      while GT(elem[i].key, d[j].key)
+      {
+        d[(j-1+elem.size())%elem.size()]=d[j];
+        j=(j+1)%elem.size();
+      }
+      d[(j-1+elem.size())%elem.size()]=elem[i];
+    }
+    else
+    {
+      j=final++;
+      while LT(elem[i].key, d[j].key)
+      {
+        d[(j+1)%elem.size()]=d[j];
+        j=(j-1+elem.size())%elem.size();
+      }
+      d[(j+1)%elem.size()]=elem[i];
+    }
+  }
+  for(i=0; i<elem.size(); i++)
+    elem[i]=d[(first+i)%elem.size()];
+}
+

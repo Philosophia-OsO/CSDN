@@ -1,0 +1,5 @@
+inline void print(T& c)
+{
+  cout<<c<<" ";
+}
+

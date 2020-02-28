@@ -1,0 +1,4 @@
+T *elem;
+int length;
+int listsize;
+

@@ -1,0 +1,18 @@
+void CreateBiTreeFromFile(ifstream &f)
+{
+  T e;
+  InputFromFile(f, e);
+  if(e==Nil)
+    return;
+  root=new BiTNode<T>;
+  assert(root!=NULL);
+  root->data=e;
+  BiTree<T> son;
+  son.CreateBiTreeFromFile(f);
+  root->lchild=son.root;
+  son.root=NULL;
+  son.CreateBiTreeFromFile(f);
+  root->rchild=son.root;
+  son.root=NULL;
+}
+

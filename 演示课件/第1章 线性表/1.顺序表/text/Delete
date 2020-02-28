@@ -1,0 +1,23 @@
+bool ListDelete(int i, T &e)
+{
+  T *p, *q;
+  if(i<0 || i>=length)
+    return false;
+  p=elem+i;
+  e=*p;
+  q=elem+length-1;
+  for(p++; p<=q; p++)
+    *(p-1)=*p;
+  length--;
+  if(length<=listsize/4)
+  {
+    p=new T[listsize/2];
+    for(int j=0; j<length; j++)
+      *(p+j)=*(elem+j);
+    delete[]elem;
+    elem=p;
+    listsize/=2;
+  }
+  return true;
+}
+

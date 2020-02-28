@@ -1,0 +1,13 @@
+bool NextElem(T e, bool(*eq)(T, T), T &next_e)const
+{
+ 
+  int i=LocateElem(e, eq);
+  if(i==-1 || i==length-1)
+    return false;
+  else
+  {
+    next_e=*(elem+i+1);
+    return true;
+  }
+}
+

@@ -1,0 +1,17 @@
+bool ListDelete(int i, T &e)const
+{
+  int j=0;
+  LNode<T> *q, *p=Head;
+  while(p->next!=NULL && j<i-1)
+  {
+    j++;
+    p=p->next;
+  }
+  if(p->next==NULL || j>i-1)
+    return false;
+  q=p->next;
+  p->next=q->next;
+  e=q->data;
+  delete q;
+  return true;
+}

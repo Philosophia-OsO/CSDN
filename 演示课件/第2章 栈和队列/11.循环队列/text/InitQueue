@@ -1,0 +1,7 @@
+SqQueueCy(int k=1)
+{
+  base=new T[k];
+  assert(base!=NULL);
+  front=rear=0;
+  queuesize=k;
+}

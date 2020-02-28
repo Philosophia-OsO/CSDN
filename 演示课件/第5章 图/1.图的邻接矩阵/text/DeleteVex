@@ -1,0 +1,20 @@
+bool DeleteVex(VerT v)
+{
+  int i, k;
+  k=LocateVex(v);
+  if(k<0)
+    return false;
+  for(i=0; i<vexs.size(); i++)
+  {
+    if(vexs[k].arcs[i].adj>0 && vexs[k].arcs[i].adj!=INFINITY)
+      ArcNum--;
+    if(Directed)
+      if(vexs[i].arcs[k].adj>0 && vexs[i].arcs[k].adj!=INFINITY)
+        ArcNum--;
+  }
+  vexs.erase(vexs.begin()+k);
+  for(i=0; i<vexs.size(); i++)
+    vexs[i].arcs.erase(vexs[i].arcs.begin()+k);
+  return true;
+}
+

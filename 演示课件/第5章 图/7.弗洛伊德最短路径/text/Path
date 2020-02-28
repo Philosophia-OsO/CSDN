@@ -1,0 +1,29 @@
+void Path(int i, int j)const
+{
+  vector<bool> p=P[i][j];
+  int k, n, m=i;
+  VRType min;
+  vector<int> pa;
+  if(D[i][j]<INFINITY)
+  {
+    pa.push_back(i);
+    p[i]=false;
+    while(m!=j)
+    {
+      min=INFINITY;
+      for(k=0; k<vexs.size(); k++)
+        if(vexs[m].arcs[k].adj<min && p[k])
+        {
+          min=vexs[m].arcs[k].adj;
+          n=k;
+        }
+      pa.push_back(n);
+      p[n]=false;
+      m=n;
+    }
+    DisplayPath(pa);
+  }
+  else
+    cout<<vexs[i].vex.name<<"到"<<vexs[j].vex.name<<"没有路径可通。"<<endl;
+}
+

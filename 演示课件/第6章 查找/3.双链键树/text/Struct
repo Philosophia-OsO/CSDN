@@ -1,0 +1,38 @@
+enum NodeKind {LEAF, BRANCH};
+struct DLTNode
+{
+  char symbol;
+  NodeKind kind;
+  union
+  {
+    int index;
+    DLTNode *first;
+  };
+  DLTNode *next;
+  DLTNode()
+  {
+    kind=BRANCH;
+    first=next=NULL;
+  }
+};
+typedef string KeyType;
+template<typename D>class DLTree
+{
+private:
+  DLTNode *dst;
+  int MinEmpt;
+  vector<D> record;
+  ......
+};
+struct Record
+{
+  KeyType key;
+  int order;
+};
+const char Empty='$';
+struct flagptr
+{
+  DLTNode *ptr;
+  bool flag;
+};
+

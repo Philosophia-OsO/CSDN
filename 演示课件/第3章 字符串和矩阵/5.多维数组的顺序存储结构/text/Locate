@@ -1,0 +1,14 @@
+bool Locate(va_list ap, int &off)const
+{
+  int i, ind;
+  off=0;
+  for(i=0; i<dim; i++)
+  {
+    ind=va_arg(ap, int);
+    if(ind<0 || ind>=bounds[i])
+      return false;
+    off+=constants[i]*ind;
+  }
+  return true;
+}
+

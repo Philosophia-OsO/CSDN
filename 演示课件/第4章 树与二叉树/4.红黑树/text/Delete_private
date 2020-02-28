@@ -1,0 +1,52 @@
+void Delete(RBTNode<T>* &p)
+{
+  RBTNode<T> *pa, *s, *q=p;
+  bool lr, deleflag=false;
+  bool rootflag=(p==root);
+  if(p->rchild==NULL || p->lchild==NULL)
+  {
+    if(p->RB==Black && p!=root)
+    {
+      deleflag=true;
+      pa=Parent(p);
+      if(p->data.key<pa->data.key)
+        lr=true;
+      else
+        lr=false;
+    }
+    if(p->rchild==NULL)
+      p=p->lchild;
+    else
+      p=p->rchild;
+    if(rootflag && p!=NULL)
+      p->RB=Black;
+    delete q;
+  }
+  else
+  {
+    s=p->lchild;
+    while(s->rchild!=NULL)
+    {
+      q=s;
+      s=s->rchild;
+    }
+    if(s->RB==Black)
+    {
+      deleflag=true;
+      pa=Parent(s);
+      if(s->data.key<pa->data.key)
+        lr=true;
+      else
+        lr=false;
+    }
+    p->data=s->data;
+    if(q!=p)
+      q->rchild=s->lchild;
+    else
+      q->lchild=s->lchild;
+    delete s;
+  }
+  if(deleflag)
+    AdjustDoubleBlack(pa, lr);
+}
+

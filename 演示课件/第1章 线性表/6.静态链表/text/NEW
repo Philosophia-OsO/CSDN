@@ -1,0 +1,8 @@
+int NEW()
+{
+  int i=SL[MAX_SIZE-1].link;
+  if(i)
+    SL[MAX_SIZE-1].link=SL[i].link;
+  return i;
+}
+

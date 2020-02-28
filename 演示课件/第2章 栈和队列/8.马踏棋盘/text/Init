@@ -1,0 +1,13 @@
+void Init(int n)
+{
+  N=n;
+  Chessboard.assign(N+4);
+  for(int i=0; i<N+4; i++)
+  {
+    Chessboard[i].assign(N+4, 0);
+    for(int j=0; j<N+4; j++)
+      if(i<2 || i>N+1 || j<2 || j>N+1)
+        Chessboard[i][j]=-1;
+  }
+}
+

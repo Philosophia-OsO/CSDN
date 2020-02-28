@@ -1,0 +1,13 @@
+bool EnQueue(T e)
+{
+  LNode<T> *p;
+  p=new LNode<T>;
+  if(p==NULL)
+    return false;
+  p->data=e;
+  p->next=NULL;
+  rear->next=p;
+  rear=p;
+  return true;
+}
+

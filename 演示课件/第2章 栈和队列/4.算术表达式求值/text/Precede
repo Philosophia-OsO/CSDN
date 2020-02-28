@@ -1,0 +1,45 @@
+char Precede(char t1, char t2)
+{
+  char f;
+  switch(t2)
+  {
+  case'+':
+  case'-':if(t1=='(' || t1=='#')
+            f='<';
+          else
+            f='>';
+          break;
+  case'*':
+  case'/':if(t1=='*' || t1=='/' || t1==')')
+            f='>';
+          else
+            f='<';
+          break;
+  case'(':if(t1==')')
+          {
+            cout<<"À¨ºÅ²»Æ¥Åä"<<endl;
+            exit(1);
+          }
+          else
+            f='<';
+          break;
+  case')':switch(t1)
+          {
+          case'(':f='=';
+                  break;
+          case'#':cout<<"È±·¦×óÀ¨ºÅ"<<endl;
+                  exit(1);
+          default:f='>';
+          }
+          break;
+  case'#':switch(t1)
+          {
+          case'#':f='=';
+                  break;
+          case'(':cout<<"È±·¦ÓÒÀ¨ºÅ"<<endl;
+                  exit(1);
+          default:f='>';
+          }
+  }
+  return f;
+}

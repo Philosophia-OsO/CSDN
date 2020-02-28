@@ -1,0 +1,17 @@
+void Recursion(int m, int &number)
+{
+  if(m<N)
+    for(int i=0; i<N; i++)
+    {
+      if(MarkArray[m][i]==-1)
+      {
+        solution[m]=i;
+        Mark(m, i, true);
+        Recursion(m+1, number);
+        Mark(m, i, false);
+      }
+    }
+  else
+    PutOutToFile(++number);
+}
+

@@ -1,0 +1,11 @@
+void hanoi(int n, int x, int y, int z)const
+{
+  if(n==1)
+    move(x, z, 1);
+  else
+  {
+    hanoi(n-1, x, z, y);
+    move(x, z, n);
+    hanoi(n-1, y, x, z);
+  }
+}

@@ -1,0 +1,8 @@
+int LocateVex(VerT u)const
+{
+  for(int i=0; i<vexs.size(); i++)
+    if EQ(u, vexs[i].vex)
+      return i;
+  return -1;
+}
+

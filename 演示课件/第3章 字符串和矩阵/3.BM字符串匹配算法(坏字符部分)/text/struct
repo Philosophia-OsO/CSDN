@@ -1,0 +1,3 @@
+BMMatching类的数据成员：
+  vector<int> BC;
+  int p;

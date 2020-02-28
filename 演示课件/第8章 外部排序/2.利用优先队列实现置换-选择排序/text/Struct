@@ -1,0 +1,20 @@
+typedef int KeyType;
+struct ID
+{
+  KeyType key;
+  int order;
+};
+template<typename D>struct WA
+{
+  D data;
+  int num;
+};
+template<typename D>class cmp
+{
+public:
+  bool operator()(const WA<D> a, const WA<D> b)const
+  {
+    return a.num>b.num || a.num==b.num && a.data.key>b.data.key;
+  }
+};
+

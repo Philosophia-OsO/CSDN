@@ -1,0 +1,25 @@
+bool DeleteArc(VerT v, VerT w)
+{
+  list<ArcTNode<ArcT> >::iterator p;
+  int i, j;
+  i=LocateVex(v);
+  j=LocateVex(w);
+  if(i<0 || j<0 || i==j)
+    return false;
+  for(p=vexs[i].arcs.begin(); p!=vexs[i].arcs.end(); p++)
+    if(p->adjvex==j)
+    {
+      vexs[i].arcs.erase(p);
+      ArcNum--;
+      break;
+    }
+  if(!Directed)
+    for(p=vexs[j].arcs.begin(); p!=vexs[j].arcs.end(); p++)
+      if(p->adjvex==i)
+      {
+        vexs[j].arcs.erase(p);
+        break;
+      }
+  return true;
+}
+

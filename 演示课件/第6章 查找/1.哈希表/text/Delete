@@ -1,0 +1,15 @@
+bool DeleteHash(KeyType Key, D &e)
+{
+ 
+  int p, c;
+  if(SearchHash(Key, p, c))
+  {
+    e=elem[p];
+    elem[p].key=TOMB;
+    count--;
+    return true;
+  }
+  else
+    return false;
+}
+

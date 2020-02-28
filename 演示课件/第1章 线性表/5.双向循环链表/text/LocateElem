@@ -1,0 +1,14 @@
+int LocateElem(T e, bool(*eq)(T, T))const
+{
+  int i=0;
+  DLNode<T> *p=Head->next;
+  while(p!=Head)
+  {
+    i++;
+    if(eq(p->data, e))
+      return i;
+    p=p->next;
+  }
+  return 0;
+}
+

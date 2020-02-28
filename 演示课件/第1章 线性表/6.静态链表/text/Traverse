@@ -1,0 +1,10 @@
+void ListTraverse(void(*visit)(T&))
+{
+  int i=SL[0].link;
+  while(i)
+  {
+    visit(SL[i].data);
+    i=SL[i].link;
+  }
+}
+

@@ -1,0 +1,7 @@
+template<typename T>class SqQueue
+{
+private:
+  T *base;
+  int rear;
+  int queuesize;
+};

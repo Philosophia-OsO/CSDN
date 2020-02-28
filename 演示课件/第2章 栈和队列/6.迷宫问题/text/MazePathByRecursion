@@ -1,0 +1,6 @@
+void MazePathByRecursion()
+{
+  maze[begin.row][begin.col]=1;
+  count=0;
+  Try(begin, 1);
+}

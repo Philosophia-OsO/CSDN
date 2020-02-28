@@ -1,0 +1,37 @@
+void D_RightBalance(AVLTNode<T>* &p, bool &lower)
+{
+  AVLTNode<T> *rd, *lc=p->lchild;
+  switch(lc->bf)
+  {
+  case EH:
+    lc->bf=RH;
+    p->bf=LH;
+    LL_Rotate(p);
+    lower=false;
+    break;
+  case LH:
+    p->bf=lc->bf=EH;
+    LL_Rotate(p);
+    lower=true;
+    break;
+  case RH:
+    rd=lc->rchild;
+    switch(rd->bf)
+    {
+    case EH:
+      p->bf=lc->bf=EH;
+      break;
+    case RH:
+      p->bf=EH;
+      lc->bf=LH;
+      break;
+    case LH:
+      p->bf=RH;
+      lc->bf=EH;
+    }
+    rd->bf=EH;
+    LR_Rotate(p);
+    lower=true;
+  }
+}
+

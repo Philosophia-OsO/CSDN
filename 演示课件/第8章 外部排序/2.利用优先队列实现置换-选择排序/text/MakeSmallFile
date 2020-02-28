@@ -1,0 +1,41 @@
+void MakeSmallFile(const string FileName, int N)
+{
+  priority_queue<WA<D>, vector<WA<D> >, cmp<D> > pri_queue;
+  
+  string s="F00.txt";
+  ofstream fout;
+  ifstream fin(FileName.c_str());
+  WA<D> wa, q;
+  int k=0;
+  wa.num=k;
+  for(int i=0; i<N; i++)
+    if(InputFromFile(fin, wa.data))
+      pri_queue.push(wa);
+  fout.open(s.c_str());
+  while(!pri_queue.empty())
+  {
+    q=pri_queue.top();
+    if(q.num>k)
+    {
+      fout.close();
+      k++;
+      s[2]=k%10+'0';
+      s[1]=k/10%10+'0';
+      fout.open(s.c_str());
+    }
+    OutputToFile(fout, q.data);
+    pri_queue.pop();
+    if(!fin.eof())
+      if(InputFromFile(fin, wa.data))
+      {
+        if(wa.data.key<q.data.key)
+          wa.num=q.num+1;
+        else
+          wa.num=q.num;
+        pri_queue.push(wa);
+      }
+  }
+  fout.close();
+  fin.close();
+}
+

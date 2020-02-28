@@ -1,0 +1,72 @@
+bool InsertDLTree(D r)
+{
+    DLTNode *q=dst, *p=dst->first, *ap;
+    int i, k;
+    if(SearchDLTree(r.key)!=-1)
+        return false;
+    
+    if(MinEmpt!=record.size())
+    {
+        record[MinEmpt]=r;
+        k=MinEmpt;
+        for(i=MinEmpt+1; i<record.size(); i++)
+            if(record[i].key[0]==Empty)
+                break;
+        MinEmpt=i;
+    }
+    else
+    {
+        record.push_back(r);
+        k=MinEmpt;
+        MinEmpt=record.size();
+    }
+    i=0;
+    while(p!=NULL && i<r.key.size())
+    {
+        while(p!=NULL && p->symbol<r.key[i])
+        {
+            q=p;
+            p=p->next;
+        }
+        if(p!=NULL && p->symbol==r.key[i])
+        {
+            q=p;
+            p=p->first;
+            i++;
+        }
+        else
+            break;
+    }
+    ap=new DLTNode;
+    if(q->first==p)
+        q->first=ap;
+    else
+        q->next=ap;
+    if(i==r.key.size())
+    {
+        ap->next=p;
+        ap->symbol=Empty;
+        ap->kind=LEAF;
+        ap->index=k;
+    }
+    else
+    {
+        ap->next=p;
+        ap->symbol=r.key[i];
+        p=ap;
+        ap=new DLTNode;
+        for(i++; i<r.key.size(); i++)
+        {
+            p->first=ap;
+            ap->symbol=r.key[i];
+            p=ap;
+            ap=new DLTNode;
+        }
+        p->first=ap;
+        ap->symbol=Empty;
+        ap->kind=LEAF;
+        ap->index=k;
+    }
+    return true;
+}
+

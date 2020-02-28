@@ -1,0 +1,43 @@
+void Kruskal()
+{
+  vector<int> set(vexs.size());
+  if(vexs.size()>0 && Weight && !Directed)
+  {
+    priority_queue<side, vector<side>, cmp> q;
+    
+    int i, j, k;
+    side se;
+    for(i=0; i<vexs.size(); i++)
+      for(j=i+1; j<vexs.size(); j++)
+        if(vexs[i].arcs[j].adj<INFINITY)
+        {
+          se.a=i, se.b=j, se.weight=vexs[i].arcs[j].adj;
+          q.push(se);
+        }
+    for(i=0; i<vexs.size(); i++)
+      set[i]=i;
+    k=0;
+    while(k<vexs.size()-1)
+    {
+      if(!q.empty())
+      {
+        se=q.top();
+        q.pop();
+        if(set[se.a]!=set[se.b])
+        {
+          j=set[se.b];
+          for(i=0; i<vexs.size(); i++)
+            if(set[i]==j)
+              set[i]=set[se.a];
+          k++;
+        }
+      }
+      else
+      {
+        cout<<"无法构成最小生成树。"<<endl;
+        break;
+      }
+    }
+  }
+}
+

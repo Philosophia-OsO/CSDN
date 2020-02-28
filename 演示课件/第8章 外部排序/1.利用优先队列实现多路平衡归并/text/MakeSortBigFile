@@ -1,0 +1,35 @@
+void MakeSortBigFile(ofstream &fout)
+{
+  if(Make)
+  {
+    ifstream *finp=new ifstream[k];
+    PriType c;
+    int i, j=0;
+    string s="F00.txt";
+    for(i=0; i<k; i++)
+    {
+      s[2]=i%10+'0';
+      s[1]=i/10%10+'0';
+      finp[i].open(s.c_str(), ios::in);
+    }    
+    priority_queue<PriType, vector<PriType>, cmp> pri_queue;
+    for(i=0; i<k; i++)
+    {
+      if(InputFromFile(finp[i], c.data))
+        c.number=i;
+      pri_queue.push(c);
+    }
+    while(!pri_queue.empty())
+    {
+      c=pri_queue.top();
+      OutputToFile(fout, c.data);
+      pri_queue.pop();
+      if(InputFromFile(finp[c.number], c.data))
+        pri_queue.push(c);
+    }
+    for(i=0; i<k; i++)
+      finp[i].close();
+    delete[]finp;
+  }
+}
+

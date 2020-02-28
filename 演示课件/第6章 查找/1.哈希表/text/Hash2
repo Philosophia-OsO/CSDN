@@ -1,0 +1,4 @@
+int Hash2(KeyType Key)
+{
+  return Key%(capacity-2);
+}

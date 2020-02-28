@@ -1,0 +1,16 @@
+int minimum()
+{
+  int i=0, j, k, min;
+  while(mindge[i].lowc==0)
+    i++;
+  min=mindge[i].lowc;
+  k=i;
+  for(j=i+1; j<vexs.size(); j++)
+    if(mindge[j].lowc>0 && mindge[j].lowc<min)
+    {
+      min=mindge[j].lowc;
+      k=j;
+    }
+  return k;
+}
+

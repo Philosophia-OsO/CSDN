@@ -1,0 +1,16 @@
+bool NextElem(T e, bool(*eq)(T, T), T &next_e)const
+{
+ 
+  int i=SL[0].link;
+  while(i)
+  {
+    if(eq(SL[i].data, e) && SL[i].link)
+    {
+      next_e=SL[SL[i].link].data;
+      return true;
+    }
+    i=SL[i].link;
+  }
+  return false;
+}
+

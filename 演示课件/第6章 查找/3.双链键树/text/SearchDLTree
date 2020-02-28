@@ -1,0 +1,21 @@
+int SearchDLTree(string Key)const
+{
+  DLTNode *p=dst->first;
+  int i=0;
+  while(p!=NULL && i<Key.size())
+  {
+    while(p!=NULL && p->symbol<Key[i])
+      p=p->next;
+    if(p!=NULL && p->symbol==Key[i])
+    {
+      p=p->first;
+      i++;
+    }
+    else
+      return -1;
+  }
+  if(p!=NULL && p->kind==LEAF)
+    return p->index;
+  else
+    return -1;
+}

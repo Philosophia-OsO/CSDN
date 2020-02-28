@@ -1,0 +1,14 @@
+template<typename T>class SqQueueNM:public SqQueueCy<T>
+{
+   ¡­¡­
+};
+
+template<typename T>class SqQueueCy£¨»ùÀà£©
+{
+protected:
+  T *base;
+  int front;
+  int rear;
+  int queuesize;
+  ¡­¡­
+};

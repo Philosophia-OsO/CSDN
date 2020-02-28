@@ -1,0 +1,5 @@
+void ClearList()
+{
+  length=0;
+}
+

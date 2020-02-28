@@ -1,0 +1,14 @@
+HString substr(int pos, int len)const
+{
+  HString Sub; 
+  if(!(pos<0 || pos>=length || len<=0 || len>length-pos))
+  {
+    Sub.length=len;
+    Sub.ch=new char[len];
+    assert(Sub.ch!=NULL);
+    for(int i=0; i<len; i++)
+      Sub.ch[i]=ch[pos+i];
+  }
+  return Sub;
+}
+

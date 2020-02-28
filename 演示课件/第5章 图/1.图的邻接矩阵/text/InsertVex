@@ -1,0 +1,16 @@
+void InsertVex(VerT v)
+{
+  int i;
+  ArcT arc;
+  if(Weight)
+    arc.adj=INFINITY;
+  else
+    arc.adj=0;
+  for(i=0; i<vexs.size(); i++)
+    vexs[i].arcs.resize(vexs.size()+1, arc);
+  vexs.resize(vexs.size()+1);
+  vexs[vexs.size()-1].vex=v;
+  vexs[vexs.size()-1].arcs.resize(vexs.size(), arc);
+  vexs[vexs.size()-1].arcs[vexs.size()-1].adj=0;
+}
+
